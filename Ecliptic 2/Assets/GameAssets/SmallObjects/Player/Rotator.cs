@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
-    [SerializeField] private Transform _tranform;
+    private Rigidbody2D _body;
     [SerializeField] private IInputReader _input;
     [SerializeField] private float _rotationSpeed;
     private void Awake()
     {
-        _tranform = gameObject.transform;
+        _body = GetComponent<Rigidbody2D>();
         _input = gameObject.GetComponent<IInputReader>();
     }
     void FixedUpdate()
     {
         if (_input == null) return;
-        _tranform.eulerAngles += new Vector3(0f, 0f, _input.GetRotation() * Time.fixedDeltaTime * _rotationSpeed);
+        _body.MoveRotation(transform.eulerAngles.z + (_input.GetRotation() * Time.fixedDeltaTime * _rotationSpeed));
     }
 }

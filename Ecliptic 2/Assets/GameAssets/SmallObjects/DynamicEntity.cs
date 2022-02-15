@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class DynamicEntity : MonoBehaviour
 {
-    private Vector3 _velocity;
-    private Vector3 _acceleration;
-    [SerializeField] private Transform _transform;
+    protected Vector3 _velocity;
+    protected Vector3 _acceleration;
+    protected Rigidbody2D _body;
+    protected Transform _transform;
     private void Awake()
     {
+        _body = GetComponent<Rigidbody2D>();
         _transform = gameObject.transform;
     }
     private void Update()
     {
-        _velocity += _acceleration;
-        _transform.position += _velocity;
+        if (_body == null) return;
+        _body.AddForce(_acceleration);
         _acceleration = Vector3.zero;
     }
     public void UpdateAcceleration(Vector3 DeltaA)

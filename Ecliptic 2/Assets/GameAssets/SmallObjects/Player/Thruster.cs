@@ -20,7 +20,6 @@ public class Thruster : MonoBehaviour
     {
         _eulerAngles = gameObject.transform.eulerAngles;
         if (_input == null || _entity == null) return;
-        Debug.Log($"{_eulerAngles.z}");
         float xThrust = _input.GetThrust() * Mathf.Cos(Mathf.Deg2Rad * _eulerAngles.z);
         float yThrust = _input.GetThrust() * Mathf.Sin(Mathf.Deg2Rad * _eulerAngles.z);
         Vector3 thrust = new Vector3(xThrust, yThrust, 0f);
