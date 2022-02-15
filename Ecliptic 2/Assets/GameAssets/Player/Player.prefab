@@ -45,6 +45,9 @@ GameObject:
   - component: {fileID: 1438015707341378193}
   - component: {fileID: 5166992172513612774}
   - component: {fileID: 5527575806879499720}
+  - component: {fileID: 4912718799767732561}
+  - component: {fileID: 2355596323237145551}
+  - component: {fileID: 329039091732094542}
   m_Layer: 0
   m_Name: Dynamic Sprite
   m_TagString: Untagged
@@ -148,7 +151,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -179,3 +182,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c39f61c044c1a4d808a4325c5db0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4912718799767732561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7788503617169020106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78dc0ef9e066d9b46a7baaa886d21f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tranform: {fileID: 6153521040208999921}
+  _rotationSpeed: 270
+--- !u!114 &2355596323237145551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7788503617169020106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ab164e03cdc314a8da9eea6a44852a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 6153521040208999921}
+--- !u!114 &329039091732094542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7788503617169020106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716fdd7759c007c4899df820e650d699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _power: 0.01
