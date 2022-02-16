@@ -19,8 +19,6 @@ public class Game : MonoBehaviour
         }
     }
 
-    
-
     public static float FindEntityAngle(Vector3 Point_1, Vector3 Point_2)
     {
         float angle = Mathf.Atan2(Point_2.y - Point_1.y, Point_2.x - Point_1.x);
@@ -47,7 +45,6 @@ public class Game : MonoBehaviour
     public static Vector3 ComputeInstantAcceleration(Vector3 positionG, Vector3 positionM, float mass)
     {
         float distance = Vector3.Distance(positionG, positionM);
-        if (distance < 0.1f) distance = 0.1f;
         float angle = FindEntityAngle(positionM, positionG);
         float mag = -mass / (distance * distance);
         float forcex = mag * cos(Mathf.Deg2Rad * angle);

@@ -25,21 +25,29 @@ public class Trajectory : MonoBehaviour
         int index = -1;
         foreach(TrajectoryPoint p in _points)
         {
-            p.rend.enabled = true;
+            
             index++;
             if (index == 0) continue;
             p.velocity = lastPoint.velocity;
             p.transform.position = lastPoint.transform.position;
             p.acceleration = Vector3.zero;
-
             foreach(MassiveBody m in Game.planets)
             {
+                if(IsTooClose(p.transform.position, m))
+                {
+                    p.velocity = Vector3.zero;
+                    p.acceleration = Vector3.zero;
+                    break;
+                }
                 p.acceleration += Game.ComputeInstantAcceleration(p.transform.position, m.transform.position, m.GetMass()) * 0.005f;
             }
             p.velocity += p.acceleration * _timestep;
             p.transform.position += p.velocity * _timestep;
             lastPoint = p;
-            if (p.velocity.magnitude > 5f) p.rend.enabled = false;
         }
+    }
+    private bool IsTooClose(Vector3 position, MassiveBody m)
+    {
+        return Vector3.Distance(position, m.transform.position) < m.GetRadius()/2;
     }
 }
