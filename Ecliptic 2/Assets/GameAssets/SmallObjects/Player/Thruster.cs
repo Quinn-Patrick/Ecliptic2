@@ -9,6 +9,8 @@ public class Thruster : MonoBehaviour
     private Vector3 _eulerAngles;
     [SerializeField] private float _power;
 
+    bool _canThrust = true;
+
     private void Awake()
     {
         _input = GetComponent<IInputReader>();
@@ -19,10 +21,10 @@ public class Thruster : MonoBehaviour
     private void FixedUpdate()
     {
         _eulerAngles = gameObject.transform.eulerAngles;
-        if (_input == null || _entity == null) return;
+        if (_input == null || _entity == null || !_canThrust) return;
         float xThrust = _input.GetThrust() * Mathf.Cos(Mathf.Deg2Rad * _eulerAngles.z);
         float yThrust = _input.GetThrust() * Mathf.Sin(Mathf.Deg2Rad * _eulerAngles.z);
         Vector3 thrust = new Vector3(xThrust, yThrust, 0f);
-        _entity.UpdateAcceleration(thrust * _power * Time.fixedDeltaTime);
+        _entity.UpdateAcceleration(_power * Time.fixedDeltaTime * thrust);
     }
 }

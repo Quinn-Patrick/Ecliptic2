@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DynamicEntity : MonoBehaviour
 {
-    protected Vector3 _velocity;
     protected Vector3 _acceleration;
     protected Rigidbody2D _body;
     protected Transform _transform;
@@ -22,5 +21,14 @@ public class DynamicEntity : MonoBehaviour
     public void UpdateAcceleration(Vector3 DeltaA)
     {
         _acceleration += DeltaA;
+    }
+    public Rigidbody2D GetBody()
+    {
+        return _body;
+    }
+
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 20), $"Velocity: {_body.velocity}");
     }
 }
