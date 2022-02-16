@@ -179,6 +179,7 @@ MonoBehaviour:
   _transform: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   acceleration: {x: 0, y: 0, z: 0}
+  rend: {fileID: 0}
 --- !u!1 &7788503617169020106
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,8 +197,9 @@ GameObject:
   - component: {fileID: 329039091732094542}
   - component: {fileID: 5158017783382912350}
   - component: {fileID: 1137506225212899947}
+  - component: {fileID: 7266082749915547778}
   m_Layer: 0
-  m_Name: Dynamic Sprite
+  m_Name: PlayerShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,6 +380,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.44819665, y: 0.2883603}
   m_EdgeRadius: 0
+--- !u!114 &7266082749915547778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7788503617169020106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266a3dc60c6776c43b45368b83ce876c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fuelMax: 100
+  _currentFuel: 100
+  _fuelEfficiency: 0.1
 --- !u!1 &9151630255152107970
 GameObject:
   m_ObjectHideFlags: 0

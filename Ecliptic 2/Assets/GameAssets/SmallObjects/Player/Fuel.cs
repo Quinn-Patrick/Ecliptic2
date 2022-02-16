@@ -41,4 +41,8 @@ public class Fuel : MonoBehaviour
         }
         if (_currentFuel < 0) _currentFuel = 0;
     }
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(10, 20, 100, 20), $"Fuel: {_currentFuel}");
+    }
 }
