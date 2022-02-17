@@ -17,7 +17,7 @@ public class GravitatingBody : DynamicEntity
         _rotationSystem = GetComponent<Rotator>();
 
     }
-    private void Start()
+    protected void Start()
     {
         Game.gravitators.Add(this);
     }
