@@ -26,4 +26,9 @@ public class PlayerInputReader : MonoBehaviour, IInputReader
     {
         return _controller.GetThrust();
     }
+
+    public bool GetZoom()
+    {
+        return _controller.GetZoom();
+    }
 }
