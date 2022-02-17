@@ -40,13 +40,13 @@ public class Game : MonoBehaviour
     }
     private static Vector3 ComputeAcceleration(GravitatingBody g, MassiveBody m)
     {
-        return ComputeInstantAcceleration(g.transform.position, m.transform.position, m.GetMass()) * Time.fixedDeltaTime;
+        return ComputeInstantAcceleration(g.transform.position, m.transform.position, m.GetMass(), g.GetBody().mass) * Time.fixedDeltaTime;
     }
-    public static Vector3 ComputeInstantAcceleration(Vector3 positionG, Vector3 positionM, float mass)
+    public static Vector3 ComputeInstantAcceleration(Vector3 positionG, Vector3 positionM, float mass, float gMass)
     {
         float distance = Vector3.Distance(positionG, positionM);
         float angle = FindEntityAngle(positionM, positionG);
-        float mag = -mass / (distance * distance);
+        float mag = -mass * gMass / (distance * distance);
         float forcex = mag * cos(Mathf.Deg2Rad * angle);
         float forcey = mag * sin(Mathf.Deg2Rad * angle);
         return new Vector3(forcex, forcey, 0f);

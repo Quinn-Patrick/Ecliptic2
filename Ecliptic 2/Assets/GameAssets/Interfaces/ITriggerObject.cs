@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface TriggerObject
+public interface ITriggerObject
 {
     public void PlayerEnter(Player player);
     public void PlayerStay(Player player);

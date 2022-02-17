@@ -7,14 +7,17 @@ public class DynamicEntity : MonoBehaviour
     protected Vector3 _acceleration;
     protected Rigidbody2D _body;
     protected Transform _transform;
+    [SerializeField] private Vector2 _initialVelocity;
 
     
     protected void Awake()
     {
         _body = GetComponent<Rigidbody2D>();
         _transform = gameObject.transform;
+        if (_body == null) return;
+        _body.velocity = _initialVelocity;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (_body == null) return;
         _body.AddForce(_acceleration);
