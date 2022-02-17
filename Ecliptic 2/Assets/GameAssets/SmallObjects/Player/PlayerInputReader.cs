@@ -12,8 +12,10 @@ public class PlayerInputReader : MonoBehaviour, IInputReader
 
     public List<bool> GetActionList()
     {
-        List<bool> output =  new List<bool>();
-        output.Add(_controller.GetFire());
+        List<bool> output = new List<bool>
+        {
+            _controller.GetFire()
+        };
         return output;
     }
 

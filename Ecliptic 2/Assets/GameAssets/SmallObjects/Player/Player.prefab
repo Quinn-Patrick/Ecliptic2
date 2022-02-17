@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 1137506225212899947}
   - component: {fileID: 7266082749915547778}
   - component: {fileID: 2006834026112244975}
+  - component: {fileID: 1637242737978033180}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -399,6 +400,19 @@ MonoBehaviour:
   _fuelSystem: {fileID: 0}
   _thrustSystem: {fileID: 0}
   _rotationSystem: {fileID: 0}
+--- !u!114 &1637242737978033180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7788503617169020106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ecf6352c3472f4baa21c18a61d5cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _owner: {fileID: 2006834026112244975}
 --- !u!1 &9151630255152107970
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class DynamicEntity : MonoBehaviour
         if (_body == null) return;
         _body.velocity = _initialVelocity;
     }
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         if (_body == null) return;
         _body.AddForce(_acceleration);
