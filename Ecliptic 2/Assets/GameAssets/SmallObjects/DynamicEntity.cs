@@ -7,7 +7,9 @@ public class DynamicEntity : MonoBehaviour
     protected Vector3 _acceleration;
     protected Rigidbody2D _body;
     protected Transform _transform;
-    private void Awake()
+
+    
+    protected void Awake()
     {
         _body = GetComponent<Rigidbody2D>();
         _transform = gameObject.transform;
