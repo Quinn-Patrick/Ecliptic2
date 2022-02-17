@@ -15,29 +15,40 @@ public class Game : MonoBehaviour
     {
         foreach(GravitatingBody g in gravitators)
         {
-            foreach(MassiveBody m in planets)
-            {
-                if(g != m)
-                {
-                    float distance = Vector3.Distance(g.transform.position, m.transform.position);
-                    float angle = FindEntityAngle(m.transform.position, g.transform.position);
-                    float mag = -m.GetMass() / (distance * distance);
-                    float forcex = mag * cos(Mathf.Deg2Rad * angle);
-                    float forcey = mag * sin(Mathf.Deg2Rad * angle);
-                    g.UpdateAcceleration(new Vector3(forcex, forcey, 0f) * Time.fixedDeltaTime);
-                }
-            }
+            AccelerateGravitator(g);
         }
-    }
-
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 100, 20), $"Angle: {FindEntityAngle(planets[0].transform.position, gravitators[0].transform.position)}");
     }
 
     public static float FindEntityAngle(Vector3 Point_1, Vector3 Point_2)
     {
         float angle = Mathf.Atan2(Point_2.y - Point_1.y, Point_2.x - Point_1.x);
         return Mathf.Rad2Deg * angle;
+    }
+    public static Vector3 ComputeTotalAcceleration(GravitatingBody g)
+    {
+        Vector3 acceleration = Vector3.zero;
+        foreach (MassiveBody m in planets)
+        {
+            acceleration += ComputeAcceleration(g, m);
+        }
+        return acceleration;
+    }
+    public static void AccelerateGravitator(GravitatingBody g)
+    {
+        Vector3 acceleration = ComputeTotalAcceleration(g);
+        g.UpdateAcceleration(acceleration);
+    }
+    private static Vector3 ComputeAcceleration(GravitatingBody g, MassiveBody m)
+    {
+        return ComputeInstantAcceleration(g.transform.position, m.transform.position, m.GetMass()) * Time.fixedDeltaTime;
+    }
+    public static Vector3 ComputeInstantAcceleration(Vector3 positionG, Vector3 positionM, float mass)
+    {
+        float distance = Vector3.Distance(positionG, positionM);
+        float angle = FindEntityAngle(positionM, positionG);
+        float mag = -mass / (distance * distance);
+        float forcex = mag * cos(Mathf.Deg2Rad * angle);
+        float forcey = mag * sin(Mathf.Deg2Rad * angle);
+        return new Vector3(forcex, forcey, 0f);
     }
 }

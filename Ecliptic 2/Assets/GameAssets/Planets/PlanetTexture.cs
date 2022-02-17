@@ -10,5 +10,6 @@ public class PlanetTexture : MonoBehaviour
     private void Start()
     {
         _self.size = new Vector2(_planetSurface.localScale.x, _planetSurface.localScale.y);
+        _planetSurface.GetComponent<SpriteRenderer>().enabled = false;
     }
 }

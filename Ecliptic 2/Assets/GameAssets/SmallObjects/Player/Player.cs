@@ -2,11 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : GravitatingBody
 {
-    private Transform _transform;
-    private void Awake()
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        _transform = GetComponent<Transform>();
+        TriggerObject trigger = other.gameObject.GetComponent<TriggerObject>();
+        if (trigger != null)
+        {
+            trigger.PlayerEnter(this);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        TriggerObject trigger = other.gameObject.GetComponent<TriggerObject>();
+        if (trigger != null)
+        {
+            trigger.PlayerStay(this);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        TriggerObject trigger = other.gameObject.GetComponent<TriggerObject>();
+        if (trigger != null)
+        {
+            trigger.PlayerExit(this);
+        }
     }
 }
