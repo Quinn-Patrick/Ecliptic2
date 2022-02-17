@@ -8,6 +8,7 @@ public class GameplayControls : MonoBehaviour
     private float _thrust;
     private float _rotate;
     private bool _fire;
+    private bool _zoom;
 
     private void Awake()
     {
@@ -16,10 +17,12 @@ public class GameplayControls : MonoBehaviour
         _gameplayControls.Gameplay.UpDown.performed += ctx => _thrust = ctx.ReadValue<float>();
         _gameplayControls.Gameplay.LeftRight.performed += ctx => _rotate = ctx.ReadValue<float>();
         _gameplayControls.Gameplay.Fire.performed += ctx => _fire = true;
+        _gameplayControls.Gameplay.ZoomOut.performed += ctx => _zoom = true;
 
         _gameplayControls.Gameplay.UpDown.canceled += ctx => _thrust = 0f;
         _gameplayControls.Gameplay.LeftRight.canceled += ctx => _rotate = 0f;
         _gameplayControls.Gameplay.Fire.canceled += ctx => _fire = false;
+        _gameplayControls.Gameplay.ZoomOut.canceled += ctx => _zoom = false;
     }
 
     private void OnEnable()
@@ -41,5 +44,9 @@ public class GameplayControls : MonoBehaviour
     public bool GetFire()
     {
         return _fire;
+    }
+    public bool GetZoom()
+    {
+        return _zoom;
     }
 }
