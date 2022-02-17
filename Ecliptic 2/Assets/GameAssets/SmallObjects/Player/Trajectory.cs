@@ -39,7 +39,7 @@ public class Trajectory : MonoBehaviour
                     p.acceleration = Vector3.zero;
                     break;
                 }
-                p.acceleration += Game.ComputeInstantAcceleration(p.transform.position, m.transform.position, m.GetMass()) * 0.005f;
+                p.acceleration += Game.ComputeInstantAcceleration(p.transform.position, m.transform.position, m.GetMass(), 1) * 0.005f;
             }
             p.velocity += p.acceleration * _timestep;
             p.transform.position += p.velocity * _timestep;

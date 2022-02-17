@@ -7,7 +7,7 @@ public class Player : GravitatingBody
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        TriggerObject trigger = other.gameObject.GetComponent<TriggerObject>();
+        ITriggerObject trigger = other.gameObject.GetComponent<ITriggerObject>();
         if (trigger != null)
         {
             trigger.PlayerEnter(this);
@@ -16,7 +16,7 @@ public class Player : GravitatingBody
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        TriggerObject trigger = other.gameObject.GetComponent<TriggerObject>();
+        ITriggerObject trigger = other.gameObject.GetComponent<ITriggerObject>();
         if (trigger != null)
         {
             trigger.PlayerStay(this);
@@ -25,7 +25,7 @@ public class Player : GravitatingBody
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        TriggerObject trigger = other.gameObject.GetComponent<TriggerObject>();
+        ITriggerObject trigger = other.gameObject.GetComponent<ITriggerObject>();
         if (trigger != null)
         {
             trigger.PlayerExit(this);

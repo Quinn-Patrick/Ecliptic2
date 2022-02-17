@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RefuelingStation : MonoBehaviour, TriggerObject
+public class RefuelingStation : MonoBehaviour, ITriggerObject
 {
     [SerializeField] private float flowRate;
     public void PlayerEnter(Player player)

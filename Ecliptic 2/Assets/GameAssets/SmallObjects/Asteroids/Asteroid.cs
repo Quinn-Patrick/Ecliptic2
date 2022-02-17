@@ -9,5 +9,6 @@ public class Asteroid : GravitatingBody
     {
         base.Start();
         _transform.localScale = new Vector3(_radius, _radius, 0f);
+        _body.mass = 1000 * _radius * _radius;
     }
 }
