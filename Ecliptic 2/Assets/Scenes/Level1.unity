@@ -364,6 +364,10 @@ PrefabInstance:
       propertyPath: _initialVelocity.y
       value: 2.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6692545500871105332, guid: 5cb841e840b688146997f080cb87f745, type: 3}
+      propertyPath: _splits
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cb841e840b688146997f080cb87f745, type: 3}
 --- !u!1 &1545210922
