@@ -233,11 +233,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4091962865945106357, guid: 57dd5386b7654e44aae5d5cdec69e346, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 4.057454
       objectReference: {fileID: 0}
     - target: {fileID: 4091962865945106357, guid: 57dd5386b7654e44aae5d5cdec69e346, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 4.057454
       objectReference: {fileID: 0}
     - target: {fileID: 4091962865945106357, guid: 57dd5386b7654e44aae5d5cdec69e346, type: 3}
       propertyPath: m_LocalScale.z
@@ -286,14 +286,6 @@ PrefabInstance:
     - target: {fileID: 7468975473966616790, guid: 57dd5386b7654e44aae5d5cdec69e346, type: 3}
       propertyPath: m_Name
       value: Planet (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770411301410575237, guid: 57dd5386b7654e44aae5d5cdec69e346, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770411301410575237, guid: 57dd5386b7654e44aae5d5cdec69e346, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57dd5386b7654e44aae5d5cdec69e346, type: 3}

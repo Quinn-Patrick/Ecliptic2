@@ -8,5 +8,4 @@ public interface IInputReader
     public float GetRotation();
     public List<bool> GetActionList();
     public bool GetAction();
-    public bool GetZoom();
 }
