@@ -8,4 +8,7 @@ public interface IMission
     public void CompleteMission();
     public void AcquireMission();
     public string GetMissionProgress();
+    public string GetMissionName();
+    public string GetMissionDescription();
+    public bool IsRequired();
 }

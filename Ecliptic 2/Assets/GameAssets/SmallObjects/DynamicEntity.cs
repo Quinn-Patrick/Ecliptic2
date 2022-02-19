@@ -31,9 +31,4 @@ public class DynamicEntity : MonoBehaviour
     {
         return _body;
     }
-
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 100, 20), $"Velocity: {_body.velocity}");
-    }
 }

@@ -8,6 +8,10 @@ public class Asteroid : GravitatingBody, IDestroyable
     private readonly GameObject[] _subAsteroids = new GameObject[2];
     [SerializeField] private bool _splits;
     private float age;
+
+    public delegate void DestroyHandler(Asteroid a);
+    public event DestroyHandler Destroyed;
+
     private new void Start()
     {
         age = 0;
@@ -46,9 +50,17 @@ public class Asteroid : GravitatingBody, IDestroyable
         _radius = rad;
     }
 
+    public GameObject[] GetSubAsteroids()
+    {
+        if (!_splits) return null;
+        return _subAsteroids;
+    }
+
     public void Defeated()
     {
+        
         if (age < 0.1f) return;
+        Destroyed?.Invoke(this);
         if (!_splits)
         {
             Destroy(this.gameObject);
