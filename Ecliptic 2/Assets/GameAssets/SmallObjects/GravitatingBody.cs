@@ -33,5 +33,10 @@ public class GravitatingBody : DynamicEntity
     {
         return _rotationSystem;
     }
+
+    private void OnDestroy()
+    {
+        Game.gravitators.Remove(this);
+    }
 }
 
