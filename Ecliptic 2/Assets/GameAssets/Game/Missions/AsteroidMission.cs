@@ -11,6 +11,7 @@ public class AsteroidMission : MonoBehaviour, IMission
     private string _name;
     private string _description;
     private bool _isRequired;
+    private bool _isComplete;
 
     [SerializeField] private AsteroidMissionData _data;
 
@@ -32,6 +33,16 @@ public class AsteroidMission : MonoBehaviour, IMission
         }
         _totalAsteroids = _asteroidList.Count;
     }
+    private void Update()
+    {
+        if (!_isComplete)
+        {
+            if(_asteroidList.Count == 0)
+            {
+                CompleteMission();
+            }
+        }
+    }
     public void AcquireMission()
     {
         MissionCore.Instance.GainMission(this);
@@ -39,6 +50,7 @@ public class AsteroidMission : MonoBehaviour, IMission
 
     public void CompleteMission()
     {
+        _isComplete = true;
         foreach (Asteroid a in _asteroidList)
         {
             a.Destroyed -= (a) => DestroyAsteroid(a);
@@ -95,8 +107,9 @@ public class AsteroidMission : MonoBehaviour, IMission
     {
         return _isRequired;
     }
-    private void OnGUI()
+    public bool IsComplete()
     {
-        GUI.Label(new Rect(10, 10, 100, 20), GetMissionProgress());
+        return _isComplete;
     }
+    
 }

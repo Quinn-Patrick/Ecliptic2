@@ -11,4 +11,5 @@ public interface IMission
     public string GetMissionName();
     public string GetMissionDescription();
     public bool IsRequired();
+    public bool IsComplete();
 }
