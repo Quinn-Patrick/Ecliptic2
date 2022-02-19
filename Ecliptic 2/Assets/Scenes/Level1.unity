@@ -379,6 +379,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CargoStation
       objectReference: {fileID: 0}
+    - target: {fileID: 1934098855063584222, guid: 8a3cca803ef60a24b97dc084b9679fb3, type: 3}
+      propertyPath: m_TagString
+      value: CargoMission1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1934614822563549040, guid: 8a3cca803ef60a24b97dc084b9679fb3, type: 3}
+      propertyPath: m_TagString
+      value: CargoMission1
+      objectReference: {fileID: 0}
     - target: {fileID: 4981817118015365275, guid: 8a3cca803ef60a24b97dc084b9679fb3, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -694,6 +702,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f369985ac847f42b1db67f1328151e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1657062193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1657062195}
+  - component: {fileID: 1657062194}
+  m_Layer: 0
+  m_Name: CargoMission1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1657062194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657062193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eacfd3cb3a137a42b0f9bd94bfe234a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _missionData: {fileID: 11400000, guid: b511eaad9c524df428615a4a8573edf1, type: 2}
+--- !u!4 &1657062195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657062193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.197401, y: 5.2248926, z: -450.1767}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1739650696
 PrefabInstance:
   m_ObjectHideFlags: 0

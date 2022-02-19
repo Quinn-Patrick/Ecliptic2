@@ -9,6 +9,10 @@ public class CargoStation : MonoBehaviour, ITriggerObject
     [SerializeField] private TextMeshPro _progressIndicator;
     private int _cargoCount = 0;
     private int _cargoTarget;
+
+    public delegate void CompletionHandler(CargoStation cs);
+    public event CompletionHandler Complete;
+
     private void Start()
     {
         _cargoTarget = _cargo.Count;
@@ -21,6 +25,10 @@ public class CargoStation : MonoBehaviour, ITriggerObject
         {
             grabber.UnloadCargo();
             _cargoCount++;
+            if(_cargoCount >= _cargoTarget)
+            {
+                Complete?.Invoke(this);
+            }
         }
     }
     private void Update()

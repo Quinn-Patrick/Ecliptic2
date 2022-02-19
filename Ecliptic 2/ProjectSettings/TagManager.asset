@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - AsteroidMission1
+  - CargoMission1
   layers:
   - Default
   - TransparentFX
