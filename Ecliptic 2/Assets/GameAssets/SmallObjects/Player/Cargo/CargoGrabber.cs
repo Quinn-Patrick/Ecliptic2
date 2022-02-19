@@ -48,4 +48,8 @@ public class CargoGrabber : MonoBehaviour
         cargo.gameObject.SetActive(true);
         cargo.Collected += CollectCargo;
     }
+    public CargoCollectible GetCurrentCargo()
+    {
+        return _currentCargo;
+    }
 }
