@@ -145,5 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sprite: {fileID: 1803614047389925741}
-  _hitbox: {fileID: 7765543201926311643}
   _duration: 3
+  mask:
+    serializedVersion: 2
+    m_Bits: 55
