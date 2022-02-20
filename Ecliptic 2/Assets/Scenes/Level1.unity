@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6153521040208999921, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.84
+      value: -2.431
       objectReference: {fileID: 0}
     - target: {fileID: 6153521040208999921, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -453,7 +453,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 691104510337147689, guid: 57dd5386b7654e44aae5d5cdec69e346, type: 3}
       propertyPath: _mass
-      value: 2000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4091962865945106357, guid: 57dd5386b7654e44aae5d5cdec69e346, type: 3}
       propertyPath: m_RootOrder
@@ -763,7 +763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895303935910671209, guid: c1f52f8caefa7584194ea8aaadb398d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.37
+      value: -17.67
       objectReference: {fileID: 0}
     - target: {fileID: 4895303935910671209, guid: c1f52f8caefa7584194ea8aaadb398d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -984,7 +984,7 @@ PrefabInstance:
     - target: {fileID: 8711784224482504731, guid: 57dd5386b7654e44aae5d5cdec69e346, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bffad45efa5e8c94aa4ebc459592fea1, type: 3}
+      objectReference: {fileID: 21300000, guid: 2cc397c7a0e2274469a1adf75bfec078, type: 3}
     - target: {fileID: 8711784224482504731, guid: 57dd5386b7654e44aae5d5cdec69e346, type: 3}
       propertyPath: m_SpriteTileMode
       value: 0
