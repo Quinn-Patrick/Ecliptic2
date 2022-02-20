@@ -80,10 +80,6 @@ public class CargoMission : MonoBehaviour, IMission
     {
         _stationsComplete++;
     }
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 100, 20), GetMissionProgress());
-    }
 
     public bool IsComplete()
     {

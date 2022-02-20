@@ -9,6 +9,7 @@ public class Thruster : MonoBehaviour
     private DynamicEntity _entity;
     private Vector3 _eulerAngles;
     [SerializeField] private float _power;
+    [SerializeField] private GameObject _exhaust;
     private Fuel _fuel;
 
     bool _canThrust = true;
@@ -23,6 +24,11 @@ public class Thruster : MonoBehaviour
 
     private void FixedUpdate()
     {
+        ApplyThrust();
+        ProjectExhaust();
+    }
+    private void ApplyThrust()
+    {
         if (_fuel == null) return;
         if (_fuel.GetFuelLevel() < float.Epsilon) return;
         _eulerAngles = gameObject.transform.eulerAngles;
@@ -32,5 +38,17 @@ public class Thruster : MonoBehaviour
         _fuel.DepleteFuel(math.abs(_input.GetThrust()));
         Vector3 thrust = new Vector3(xThrust, yThrust, 0f);
         _entity.UpdateAcceleration(_power * Time.fixedDeltaTime * thrust);
+    }
+    private void ProjectExhaust()
+    {
+        if (_exhaust == null) return;
+        if (_input.GetThrust() > 0)
+        {
+            _exhaust.transform.localScale = Vector3.one;
+        }
+        else
+        {
+            _exhaust.transform.localScale = Vector3.zero;
+        }
     }
 }
