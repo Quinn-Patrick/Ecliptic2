@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e83044c65254a469f236bc904bfef9, type: 3}
-  m_Name: AsteroidMission1
+  m_Script: {fileID: 11500000, guid: 92c8e5fc470ee0041b1cda16c013cb5a, type: 3}
+  m_Name: OrbitMission1
   m_EditorClassIdentifier: 
-  missionName: Destroy Asteroids
-  description: Completely destroy all of the asteroids.
+  missionName: Achieve Orbit
+  description: Orbit through the rings without touching the ground.
   isRequired: 0
-  asteroidID: AsteroidMission1
+  orbitID: OrbitMission1
