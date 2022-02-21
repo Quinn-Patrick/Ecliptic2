@@ -15,7 +15,8 @@ public class CargoMission : MonoBehaviour, IMission
     private bool _isComplete = false;
     private void Start()
     {
-        _name = _missionData.name;
+        AcquireMission();
+        _name = _missionData.missionName;
         _description = _missionData.description;
         _isRequired = _missionData.isRequired;
         foreach(GameObject cs in GameObject.FindGameObjectsWithTag(_missionData.cargoID))
@@ -63,7 +64,8 @@ public class CargoMission : MonoBehaviour, IMission
 
     public string GetMissionProgress()
     {
-        return $"{_stationsComplete} / {_targetStations}";
+        if(_isComplete) return $"{_name}: Complete!";
+        return $"{_name}: {_stationsComplete} / {_targetStations}";
     }
 
     public MissionType GetMissionType()

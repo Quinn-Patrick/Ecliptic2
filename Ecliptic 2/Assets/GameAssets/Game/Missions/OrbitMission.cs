@@ -17,7 +17,8 @@ public class OrbitMission : MonoBehaviour, IMission
     private List<GoalRing> _rings = new List<GoalRing>();
     private void Start()
     {
-        _name = _missionData.name;
+        AcquireMission();
+        _name = _missionData.missionName;
         _description = _missionData.description;
         _isRequired = _missionData.isRequired;
         foreach (GameObject goalRingObject in GameObject.FindGameObjectsWithTag(_missionData.orbitID))
@@ -47,6 +48,7 @@ public class OrbitMission : MonoBehaviour, IMission
 
     public void CompleteMission()
     {
+        _isComplete = true;
         _player.Impacted -= ResetMission;
         foreach (GoalRing ring in _rings)
         {
@@ -66,6 +68,7 @@ public class OrbitMission : MonoBehaviour, IMission
 
     public string GetMissionProgress()
     {
+        if (_isComplete) return $"{_name}: Complete!";
         return $"{_name}: {_ringsCleared} / {_ringsTarget}";
     }
 
