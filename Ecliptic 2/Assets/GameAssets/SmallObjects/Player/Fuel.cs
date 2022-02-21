@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fuel : MonoBehaviour
 {
-    [SerializeField] private float _fuelMax;
+    [SerializeField] private float _maxFuel;
     [SerializeField] private float _currentFuel;
     [SerializeField] private float _fuelEfficiency;
 
@@ -14,7 +14,7 @@ public class Fuel : MonoBehaviour
     }
     public float GetMaxFuel()
     {
-        return _fuelMax;
+        return _maxFuel;
     }
     public float GetFuelEfficiency()
     {
@@ -34,15 +34,15 @@ public class Fuel : MonoBehaviour
 
     private void EnsureFuel()
     {
-        if (_currentFuel > _fuelMax)
+        if (_currentFuel > _maxFuel)
         {
-            _currentFuel = _fuelMax;
+            _currentFuel = _maxFuel;
             return;
         }
         if (_currentFuel < 0) _currentFuel = 0;
     }
-    private void OnGUI()
+    public float GetFuelPercentage()
     {
-        GUI.Label(new Rect(10, 20, 100, 20), $"Fuel: {_currentFuel}");
+        return (_currentFuel / _maxFuel);
     }
 }

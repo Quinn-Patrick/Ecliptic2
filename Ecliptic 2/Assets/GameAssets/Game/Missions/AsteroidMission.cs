@@ -59,6 +59,7 @@ public class AsteroidMission : MonoBehaviour, IMission
 
     public string GetMissionProgress()
     {
+        if(_isComplete) return $"{_name}: Complete!";
         return $"{_name}: {_totalAsteroids - _asteroidsDestroyed} Remaining";
     }
 

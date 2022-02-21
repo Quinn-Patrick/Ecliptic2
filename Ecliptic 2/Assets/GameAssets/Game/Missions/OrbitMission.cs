@@ -48,6 +48,7 @@ public class OrbitMission : MonoBehaviour, IMission
 
     public void CompleteMission()
     {
+        _isComplete = true;
         _player.Impacted -= ResetMission;
         foreach (GoalRing ring in _rings)
         {
@@ -67,6 +68,7 @@ public class OrbitMission : MonoBehaviour, IMission
 
     public string GetMissionProgress()
     {
+        if (_isComplete) return $"{_name}: Complete!";
         return $"{_name}: {_ringsCleared} / {_ringsTarget}";
     }
 

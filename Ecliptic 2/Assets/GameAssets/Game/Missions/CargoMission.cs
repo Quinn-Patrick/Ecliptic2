@@ -64,6 +64,7 @@ public class CargoMission : MonoBehaviour, IMission
 
     public string GetMissionProgress()
     {
+        if(_isComplete) return $"{_name}: Complete!";
         return $"{_name}: {_stationsComplete} / {_targetStations}";
     }
 
