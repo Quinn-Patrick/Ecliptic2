@@ -1,11 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MissionCore : MonoBehaviour
 {
     public static MissionCore Instance;
-    [SerializeField] private List<IMission> _missions;
+    public List<IMission> Missions = new List<IMission>();
+
+    public delegate void MissionGainHandler(IMission mission);
+    public event MissionGainHandler missionGained;
     private void Awake()
     {
         if (Instance == null)
@@ -21,13 +23,14 @@ public class MissionCore : MonoBehaviour
 
     public void GainMission(IMission mission)
     {
-        if (!_missions.Contains(mission))
+        if (!Missions.Contains(mission))
         {
-            _missions.Add(mission);
+            Missions.Add(mission);
+            missionGained?.Invoke(mission);
         }
     }
     public void RemoveMission(IMission mission)
     {
-        _missions.Remove(mission);
+        Missions.Remove(mission);
     }
 }

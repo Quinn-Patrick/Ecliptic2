@@ -17,7 +17,8 @@ public class OrbitMission : MonoBehaviour, IMission
     private List<GoalRing> _rings = new List<GoalRing>();
     private void Start()
     {
-        _name = _missionData.name;
+        AcquireMission();
+        _name = _missionData.missionName;
         _description = _missionData.description;
         _isRequired = _missionData.isRequired;
         foreach (GameObject goalRingObject in GameObject.FindGameObjectsWithTag(_missionData.orbitID))

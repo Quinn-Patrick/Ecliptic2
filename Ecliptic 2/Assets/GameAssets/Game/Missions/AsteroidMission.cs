@@ -14,10 +14,10 @@ public class AsteroidMission : MonoBehaviour, IMission
     private bool _isComplete;
 
     [SerializeField] private AsteroidMissionData _data;
-
     private void Start()
     {
-        _name = _data.name;
+        AcquireMission();
+        _name = _data.missionName;
         _description = _data.description;
         _isRequired = _data.isRequired;
         foreach(GameObject a in GameObject.FindGameObjectsWithTag(_data.asteroidID))
@@ -59,7 +59,7 @@ public class AsteroidMission : MonoBehaviour, IMission
 
     public string GetMissionProgress()
     {
-        return $"{_asteroidsDestroyed} / {_totalAsteroids}";
+        return $"{_name}: {_totalAsteroids - _asteroidsDestroyed} Remaining";
     }
 
     public MissionType GetMissionType()
