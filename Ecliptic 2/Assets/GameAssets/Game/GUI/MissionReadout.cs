@@ -8,7 +8,7 @@ public class MissionReadout : MonoBehaviour
     [SerializeField] private GameObject _panelPrefab;
     [SerializeField] private Canvas _canvas;
     private int _missionCount = 0;
-    private void Start()
+    private void Awake()
     {
         MissionCore.Instance.missionGained += GainMission;
     }

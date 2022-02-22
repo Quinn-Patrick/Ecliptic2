@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8375855211819204692}
   - component: {fileID: 4473141290052059415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: goalDot (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6094652532250718415}
   - component: {fileID: 5892705251808947256}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: goalDot (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8752730931907191884}
   - component: {fileID: 1109870799476849989}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: goalDot (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3851590030843279372}
   - component: {fileID: 7371461974964811775}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: goalDot (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5689832214296426765}
   - component: {fileID: 4297095430288160303}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: goalDot (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7003466584627379313}
   - component: {fileID: 6340880660111397466}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: goalDot (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5982707543462801549}
   - component: {fileID: 4111394189958837578}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: goalDot (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2795560361005523980}
   - component: {fileID: 9123713958778735533}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: goalDot (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -666,7 +666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5341427167564297857}
   - component: {fileID: 4178640239860311457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: goalDot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2568967603477916508}
   - component: {fileID: 525548058020654829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: goalDot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 3392443299927849140}
   - component: {fileID: 6425624715364814724}
   - component: {fileID: 6842418158457213584}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GoalRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
