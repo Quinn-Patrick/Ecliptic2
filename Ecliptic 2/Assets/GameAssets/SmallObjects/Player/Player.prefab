@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 2006834026112244975}
   - component: {fileID: 1637242737978033180}
   - component: {fileID: 5114523527720889635}
+  - component: {fileID: 6871473855862169148}
   m_Layer: 3
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -385,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266a3dc60c6776c43b45368b83ce876c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fuelMax: 100
+  _maxFuel: 0
   _currentFuel: 100
   _fuelEfficiency: 0.1
 --- !u!114 &2006834026112244975
@@ -430,6 +431,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rope: {fileID: 4213769456593421771}
+--- !u!114 &6871473855862169148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7788503617169020106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c376f2b5a74204c8146a0320b03263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _owner: {fileID: 2006834026112244975}
+  _maxHealth: 100
+  _minimumCrashSpeed: 1
+  _crashDamageMultiplier: 15
 --- !u!1 &8318369628007807722
 GameObject:
   m_ObjectHideFlags: 0
