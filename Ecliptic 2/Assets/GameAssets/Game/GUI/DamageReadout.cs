@@ -14,7 +14,7 @@ public class DamageReadout : MonoBehaviour
         float healthPercentage = _dataSource.GetHealthPercentage();
         if (healthPercentage > 0)
         {
-            _readout.text = $"Damage: {(100 - (_dataSource.GetHealthPercentage() * 100)).ToString("00.0")}%";
+            _readout.text = $"Damage: {100 - (_dataSource.GetHealthPercentage() * 100):00.0}%";
             return;
         }
         _readout.text = $"Damage: Terminal";
