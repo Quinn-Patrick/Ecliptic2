@@ -9,7 +9,8 @@ public class DynamicEntity : MonoBehaviour
     protected Transform _transform;
     [SerializeField] private Vector2 _initialVelocity;
 
-    
+    public delegate void ImpactHandler(GameObject obj);
+    public event ImpactHandler Impacted;
     protected void Awake()
     {
         _body = GetComponent<Rigidbody2D>();
@@ -30,5 +31,10 @@ public class DynamicEntity : MonoBehaviour
     public Rigidbody2D GetBody()
     {
         return _body;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Impacted?.Invoke(collision.gameObject);
     }
 }

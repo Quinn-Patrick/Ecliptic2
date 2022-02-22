@@ -18,7 +18,7 @@ public class Trajectory : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
+        if (_player.GetBody() == null) return;
         TrajectoryPoint lastPoint = _points[0];
         lastPoint.velocity = _player.GetBody().velocity;
         lastPoint.transform.position = _player.transform.position;

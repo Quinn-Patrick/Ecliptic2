@@ -91,7 +91,7 @@ public class OrbitMission : MonoBehaviour, IMission
     {
         _ringsCleared++;
     }
-    private void ResetMission()
+    private void ResetMission(GameObject obj)
     {
         if (_isComplete) return;
         _ringsCleared = 0;

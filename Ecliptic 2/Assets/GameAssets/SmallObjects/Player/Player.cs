@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player : GravitatingBody
 {
-    public delegate void ImpactHandler();
-    public event ImpactHandler Impacted;
+    
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         ITriggerObject trigger = other.gameObject.GetComponent<ITriggerObject>();
@@ -32,8 +32,5 @@ public class Player : GravitatingBody
             trigger.PlayerExit(this);
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Impacted?.Invoke();
-    }
+    
 }
