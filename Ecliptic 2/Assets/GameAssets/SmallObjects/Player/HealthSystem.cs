@@ -15,13 +15,12 @@ public class HealthSystem : MonoBehaviour
         _currentHealth = _maxHealth;
         _owner.Impacted += Crash;
     }
-    private void Crash(GameObject obj)
+    private void Crash(Collision2D collision)
     {
-        Rigidbody2D collidedBody = obj.GetComponent<Rigidbody2D>();
         float relativeSpeed = _owner.GetBody().velocity.magnitude;
-        if(collidedBody != null)
+        if(collision != null)
         {
-            Vector2 relativeVelocity = _owner.GetBody().velocity - collidedBody.velocity;
+            Vector2 relativeVelocity = collision.relativeVelocity;
             relativeSpeed = relativeVelocity.magnitude;
         }
         Debug.Log($"Collision at relative speed {relativeSpeed}");
