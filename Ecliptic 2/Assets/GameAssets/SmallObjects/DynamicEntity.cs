@@ -9,7 +9,7 @@ public class DynamicEntity : MonoBehaviour
     protected Transform _transform;
     [SerializeField] private Vector2 _initialVelocity;
 
-    public delegate void ImpactHandler(GameObject obj);
+    public delegate void ImpactHandler(Collision2D collision);
     public event ImpactHandler Impacted;
     protected void Awake()
     {
@@ -35,6 +35,6 @@ public class DynamicEntity : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Impacted?.Invoke(collision.gameObject);
+        Impacted?.Invoke(collision);
     }
 }

@@ -78,8 +78,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointTemplate: {fileID: 7480765879897867983}
-  _length: 100
-  _timestep: 0.5
+  _length: 400
+  _timestep: 0.125
   _player: {fileID: 2006834026112244975}
 --- !u!1 &6221326871554171119
 GameObject:
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _owner: {fileID: 2006834026112244975}
   _maxHealth: 100
-  _minimumCrashSpeed: 1
+  _minimumCrashSpeed: 3
   _crashDamageMultiplier: 15
 --- !u!1 &8318369628007807722
 GameObject:
