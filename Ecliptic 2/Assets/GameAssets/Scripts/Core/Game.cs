@@ -49,6 +49,12 @@ namespace EclipticTwo.Core
             float distance = Vector3.Distance(positionG, positionM);
             float angle = FindEntityAngle(positionM, positionG);
             float mag = -mass * gMass / (distance * distance);
+
+            if (abs(mag) < 2)
+            {
+                return Vector3.zero;
+            }
+
             float forcex = mag * cos(Mathf.Deg2Rad * angle);
             float forcey = mag * sin(Mathf.Deg2Rad * angle);
             return new Vector3(forcex, forcey, 0f);
