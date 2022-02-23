@@ -7,7 +7,7 @@ public class MissionCore : MonoBehaviour
     public List<IMission> Missions = new List<IMission>();
 
     public delegate void MissionGainHandler(IMission mission);
-    public event MissionGainHandler missionGained;
+    public event MissionGainHandler MissionGained;
     private void Awake()
     {
         if (Instance == null)
@@ -26,7 +26,7 @@ public class MissionCore : MonoBehaviour
         if (!Missions.Contains(mission))
         {
             Missions.Add(mission);
-            missionGained?.Invoke(mission);
+            MissionGained?.Invoke(mission);
         }
     }
     public void RemoveMission(IMission mission)
