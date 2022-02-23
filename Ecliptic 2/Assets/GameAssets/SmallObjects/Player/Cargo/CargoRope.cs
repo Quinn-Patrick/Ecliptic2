@@ -11,13 +11,13 @@ public class CargoRope : MonoBehaviour
     private float _timeSinceActivation = 0f;
     private void Awake()
     {
-
-        gameObject.SetActive(false);
         _payloadBody = _payload.GetComponent<Rigidbody2D>();
+        gameObject.SetActive(false);
     }
-    public void ActivatePayload()
+    public void ActivatePayload(Transform targetCargo)
     {
         _timeSinceActivation = 0f;
+        _payload.transform.position = targetCargo.position;
         if (_hook == null) return;
         
     }
