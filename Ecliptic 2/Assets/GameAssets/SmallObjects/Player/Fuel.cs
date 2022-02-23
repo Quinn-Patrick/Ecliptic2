@@ -31,6 +31,11 @@ public class Fuel : MonoBehaviour
         _currentFuel += flow * Time.fixedDeltaTime;
         EnsureFuel();
     }
+    public void RestoreFuel()
+    {
+        _currentFuel = _maxFuel;
+        EnsureFuel();
+    }
 
     private void EnsureFuel()
     {

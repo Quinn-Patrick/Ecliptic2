@@ -17,7 +17,7 @@ public class SpeedReadout : MonoBehaviour
         }
         float velocity = _dataSource.velocity.magnitude;
         
-        _readout.text = $"Speed: {velocity.ToString("000.0")} m/s";
+        _readout.text = $"Speed: {velocity:000.0} m/s";
         return;
         
     }

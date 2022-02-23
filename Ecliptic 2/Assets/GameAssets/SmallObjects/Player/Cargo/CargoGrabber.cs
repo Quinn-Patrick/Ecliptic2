@@ -24,7 +24,7 @@ public class CargoGrabber : MonoBehaviour
         _currentCargo = cargo;
         DeactivateCargoCollectible(_currentCargo);
         _rope.gameObject.SetActive(true);
-        _rope.SetPayloadPosition(_currentCargo.transform.position);
+        _rope.ActivatePayload(cargo.transform);
     }
     public void UnloadCargo()
     {
@@ -40,7 +40,6 @@ public class CargoGrabber : MonoBehaviour
     }
     private void DeactivateCargoCollectible(CargoCollectible cargo)
     {
-
         cargo.gameObject.SetActive(false);
         cargo.Collected -= CollectCargo;
     }

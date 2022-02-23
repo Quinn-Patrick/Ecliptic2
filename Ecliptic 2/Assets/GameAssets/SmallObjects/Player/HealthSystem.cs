@@ -10,6 +10,9 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private float _crashDamageMultiplier;
     private float _currentHealth;
 
+    public delegate void DeathHandler();
+    public event DeathHandler Dead;
+
     private void Awake()
     {
         _currentHealth = _maxHealth;
@@ -23,17 +26,19 @@ public class HealthSystem : MonoBehaviour
             Vector2 relativeVelocity = collision.relativeVelocity;
             relativeSpeed = relativeVelocity.magnitude;
         }
-        Debug.Log($"Collision at relative speed {relativeSpeed}");
+        Debug.Log($"Collision at relative speed {relativeSpeed} with {collision.gameObject}");
 
         if (relativeSpeed < _minimumCrashSpeed) return;
 
         _currentHealth -= Mathf.Pow((relativeSpeed - _minimumCrashSpeed), 2) * _crashDamageMultiplier;
+        EnsureHealth();
     }
     private void Update()
     {
         if(_currentHealth <= 0)
         {
-            Destroy(_owner.gameObject);
+            Dead?.Invoke();
+            _owner.gameObject.transform.localScale = Vector3.zero;
         }
     }
     private void OnDestroy()
@@ -51,5 +56,15 @@ public class HealthSystem : MonoBehaviour
     public float GetHealthPercentage()
     {
         return _currentHealth / _maxHealth;
+    }
+    public void RestoreHealth(float restoreAmount)
+    {
+        _currentHealth += restoreAmount;
+        EnsureHealth();
+    }
+    private void EnsureHealth()
+    {
+        if (_currentHealth > _maxHealth) _currentHealth = _maxHealth;
+        if (_currentHealth < 0) _currentHealth = 0;
     }
 }

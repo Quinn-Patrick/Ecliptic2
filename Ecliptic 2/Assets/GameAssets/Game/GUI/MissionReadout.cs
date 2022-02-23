@@ -10,7 +10,7 @@ public class MissionReadout : MonoBehaviour
     private int _missionCount = 0;
     private void Awake()
     {
-        MissionCore.Instance.missionGained += GainMission;
+        MissionCore.Instance.MissionGained += GainMission;
     }
     private void GainMission(IMission mission)
     {

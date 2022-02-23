@@ -7,7 +7,7 @@ public class DynamicEntity : MonoBehaviour
     protected Vector3 _acceleration;
     protected Rigidbody2D _body;
     protected Transform _transform;
-    [SerializeField] private Vector2 _initialVelocity;
+    [SerializeField] protected Vector2 _initialVelocity;
 
     public delegate void ImpactHandler(Collision2D collision);
     public event ImpactHandler Impacted;

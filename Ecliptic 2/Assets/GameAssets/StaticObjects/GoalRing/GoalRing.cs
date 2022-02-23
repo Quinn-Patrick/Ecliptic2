@@ -14,8 +14,9 @@ public class GoalRing : MonoBehaviour, ITriggerObject
 
     public void PlayerEnter(Player player)
     {
-        _cleared = true;
+        if (_cleared) return;
         Cleared?.Invoke(this);
+        _cleared = true;
     }
 
     public void PlayerExit(Player player){}
