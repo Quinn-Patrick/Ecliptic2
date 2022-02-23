@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EclipticTwo.Core;
 
-public enum MissionType
+namespace EclipticTwo.Missions
 {
-    Cargo,
-    Asteroids,
-    Orbit,
-    Race
+    public enum MissionType
+    {
+        Cargo,
+        Asteroids,
+        Orbit,
+        Race
+    }
 }

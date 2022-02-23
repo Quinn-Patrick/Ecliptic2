@@ -1,36 +1,40 @@
 using System.Collections.Generic;
 using UnityEngine;
+using EclipticTwo.Core;
 
-public class MissionCore : MonoBehaviour
+namespace EclipticTwo.Missions
 {
-    public static MissionCore Instance;
-    public List<IMission> Missions = new List<IMission>();
+    public class MissionCore : MonoBehaviour
+    {
+        public static MissionCore Instance;
+        public List<IMission> Missions = new List<IMission>();
 
-    public delegate void MissionGainHandler(IMission mission);
-    public event MissionGainHandler MissionGained;
-    private void Awake()
-    {
-        if (Instance == null)
+        public delegate void MissionGainHandler(IMission mission);
+        public event MissionGainHandler MissionGained;
+        private void Awake()
         {
-            Instance = this;
-            DontDestroyOnLoad(this);
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(this);
+            }
+            else
+            {
+                Destroy(this);
+            }
         }
-        else
-        {
-            Destroy(this);
-        }
-    }
 
-    public void GainMission(IMission mission)
-    {
-        if (!Missions.Contains(mission))
+        public void GainMission(IMission mission)
         {
-            Missions.Add(mission);
-            MissionGained?.Invoke(mission);
+            if (!Missions.Contains(mission))
+            {
+                Missions.Add(mission);
+                MissionGained?.Invoke(mission);
+            }
         }
-    }
-    public void RemoveMission(IMission mission)
-    {
-        Missions.Remove(mission);
+        public void RemoveMission(IMission mission)
+        {
+            Missions.Remove(mission);
+        }
     }
 }

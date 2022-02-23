@@ -2,21 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using EclipticTwo.Core;
 
-public class DamageReadout : MonoBehaviour
+namespace EclipticTwo.Gui
 {
-    [SerializeField] private TextMeshProUGUI _readout;
-    [SerializeField] private HealthSystem _dataSource;
-    
-    void Update()
+
+    public class DamageReadout : MonoBehaviour
     {
-        if (_dataSource == null) _readout.text = "";
-        float healthPercentage = _dataSource.GetHealthPercentage();
-        if (healthPercentage > 0)
+        [SerializeField] private TextMeshProUGUI _readout;
+        [SerializeField] private HealthSystem _dataSource;
+
+        void Update()
         {
-            _readout.text = $"Damage: {100 - (_dataSource.GetHealthPercentage() * 100):00.0}%";
-            return;
+            if (_dataSource == null) _readout.text = "";
+            float healthPercentage = _dataSource.GetHealthPercentage();
+            if (healthPercentage > 0)
+            {
+                _readout.text = $"Damage: {100 - (_dataSource.GetHealthPercentage() * 100):00.0}%";
+                return;
+            }
+            _readout.text = $"Damage: Terminal";
         }
-        _readout.text = $"Damage: Terminal";
     }
 }

@@ -2,23 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using EclipticTwo.Core;
 
-public class SpeedReadout : MonoBehaviour
+namespace EclipticTwo.Gui
 {
-    [SerializeField] private TextMeshProUGUI _readout;
-    [SerializeField] private Rigidbody2D _dataSource;
-    
-    void Update()
+    public class SpeedReadout : MonoBehaviour
     {
-        if (_dataSource == null)
+        [SerializeField] private TextMeshProUGUI _readout;
+        [SerializeField] private Rigidbody2D _dataSource;
+
+        void Update()
         {
-            _readout.text = "";
+            if (_dataSource == null)
+            {
+                _readout.text = "";
+                return;
+            }
+            float velocity = _dataSource.velocity.magnitude;
+
+            _readout.text = $"Speed: {velocity:000.0} m/s";
             return;
+
         }
-        float velocity = _dataSource.velocity.magnitude;
-        
-        _readout.text = $"Speed: {velocity:000.0} m/s";
-        return;
-        
     }
 }

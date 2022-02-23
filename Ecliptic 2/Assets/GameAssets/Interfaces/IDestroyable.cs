@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDestroyable
+namespace EclipticTwo.Core
 {
-    public void Defeated();
+    public interface IDestroyable
+    {
+        public void Defeated();
+    }
 }

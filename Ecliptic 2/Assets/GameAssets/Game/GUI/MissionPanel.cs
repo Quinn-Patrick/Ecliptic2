@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using EclipticTwo.Missions;
 
-public class MissionPanel : MonoBehaviour
+namespace EclipticTwo.Gui
 {
-    [SerializeField] private TextMeshProUGUI _panelText;
-    private IMission _mission;
-    private void Update()
+    public class MissionPanel : MonoBehaviour
     {
-        if (_mission == null) return;
-        _panelText.text = _mission.GetMissionProgress();
-    }
-    public void SetMission(IMission mission)
-    {
-        _mission = mission;
+        [SerializeField] private TextMeshProUGUI _panelText;
+        private IMission _mission;
+        private void Update()
+        {
+            if (_mission == null) return;
+            _panelText.text = _mission.GetMissionProgress();
+        }
+        public void SetMission(IMission mission)
+        {
+            _mission = mission;
+        }
     }
 }

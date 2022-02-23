@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EclipticTwo.Core;
 
-public class FuelNeedle : MonoBehaviour
+namespace EclipticTwo.Gui
 {
-    [SerializeField] private Vector2 _fullFuelPosition;
-    [SerializeField] private Vector2 _emptyFuelPosition;
-    [SerializeField] private Fuel _fuelTank;
-
-    private void Update()
+    public class FuelNeedle : MonoBehaviour
     {
-        if (_fuelTank == null || _fullFuelPosition == null || _emptyFuelPosition == null) return;
+        [SerializeField] private Vector2 _fullFuelPosition;
+        [SerializeField] private Vector2 _emptyFuelPosition;
+        [SerializeField] private Fuel _fuelTank;
 
-        RectTransform needleTransform = gameObject.GetComponent<RectTransform>();
-        if (needleTransform == null) return;
+        private void Update()
+        {
+            if (_fuelTank == null || _fullFuelPosition == null || _emptyFuelPosition == null) return;
 
-        needleTransform.anchoredPosition = Vector2.Lerp(_emptyFuelPosition, _fullFuelPosition, _fuelTank.GetFuelPercentage());
+            RectTransform needleTransform = gameObject.GetComponent<RectTransform>();
+            if (needleTransform == null) return;
+
+            needleTransform.anchoredPosition = Vector2.Lerp(_emptyFuelPosition, _fullFuelPosition, _fuelTank.GetFuelPercentage());
+        }
     }
 }

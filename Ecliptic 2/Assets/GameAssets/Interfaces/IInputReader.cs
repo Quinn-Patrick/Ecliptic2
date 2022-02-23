@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IInputReader
+namespace EclipticTwo.Core
 {
-    public float GetThrust();
-    public float GetRotation();
-    public List<bool> GetActionList();
-    public bool GetAction();
-    public bool GetZoom();
+    public interface IInputReader
+    {
+        public float GetThrust();
+        public float GetRotation();
+        public List<bool> GetActionList();
+        public bool GetAction();
+        public bool GetZoom();
+    }
 }
