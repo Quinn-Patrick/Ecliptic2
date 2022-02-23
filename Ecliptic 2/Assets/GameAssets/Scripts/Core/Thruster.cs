@@ -21,7 +21,6 @@ namespace EclipticTwo.Core
             _fuel = GetComponent<Fuel>();
             _input = GetComponent<IInputReader>();
             _entity = GetComponent<DynamicEntity>();
-
         }
 
         private void FixedUpdate()
@@ -44,7 +43,7 @@ namespace EclipticTwo.Core
         private void ProjectExhaust()
         {
             if (_exhaust == null) return;
-            if (_input.GetThrust() > 0)
+            if (_input.GetThrust() > 0 && (_fuel == null || _fuel.GetFuelLevel() > 0f))
             {
                 _exhaust.transform.localScale = Vector3.one;
             }
