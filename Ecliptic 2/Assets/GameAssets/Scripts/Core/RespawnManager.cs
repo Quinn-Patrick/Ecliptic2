@@ -14,13 +14,16 @@ namespace EclipticTwo.Respawn
         [SerializeField] private Fuel _fuelTank;
         [SerializeField] private CargoGrabber _cargo;
         [SerializeField] private CargoRope _rope;
+        [SerializeField] private IInputReader _input;
         private bool _isDead;
+        private bool _canRespawn = true;
         private float _respawnTimer;
         [SerializeField] private float _respawnTime;
 
         private void Awake()
         {
             _health.Dead += KillPlayer;
+            _input = gameObject.GetComponent<IInputReader>();
         }
         private void FixedUpdate()
         {
@@ -28,11 +31,28 @@ namespace EclipticTwo.Respawn
             {
                 _respawnTimer += Time.fixedDeltaTime;
             }
-
+            RespawnInput();
             if (_respawnTimer > _respawnTime)
             {
                 Respawn();
             }
+            
+        }
+
+        private void RespawnInput()
+        {
+            if ( _input == null) return;
+            if (_input.GetRetry())
+            {
+                if (_canRespawn)
+                {
+                    _canRespawn = false;
+                    Respawn();
+                    return;
+                }
+            }
+            _canRespawn = true;
+            
         }
         private void KillPlayer()
         {
