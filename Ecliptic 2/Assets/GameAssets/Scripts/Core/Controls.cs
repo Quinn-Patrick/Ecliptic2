@@ -62,6 +62,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Retry"",
+                    ""type"": ""Button"",
+                    ""id"": ""22c4b05f-555f-46b8-a0bd-5b9ea6a55a26"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""ZoomOut"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e288aa6c-31ca-49da-b7da-025e06b51b81"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Retry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Gameplay_LeftRight = m_Gameplay.FindAction("LeftRight", throwIfNotFound: true);
         m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
         m_Gameplay_ZoomOut = m_Gameplay.FindAction("ZoomOut", throwIfNotFound: true);
+        m_Gameplay_Retry = m_Gameplay.FindAction("Retry", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -227,6 +248,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_LeftRight;
     private readonly InputAction m_Gameplay_Fire;
     private readonly InputAction m_Gameplay_ZoomOut;
+    private readonly InputAction m_Gameplay_Retry;
     public struct GameplayActions
     {
         private @Controls m_Wrapper;
@@ -235,6 +257,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @LeftRight => m_Wrapper.m_Gameplay_LeftRight;
         public InputAction @Fire => m_Wrapper.m_Gameplay_Fire;
         public InputAction @ZoomOut => m_Wrapper.m_Gameplay_ZoomOut;
+        public InputAction @Retry => m_Wrapper.m_Gameplay_Retry;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -256,6 +279,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @ZoomOut.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnZoomOut;
                 @ZoomOut.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnZoomOut;
                 @ZoomOut.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnZoomOut;
+                @Retry.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRetry;
+                @Retry.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRetry;
+                @Retry.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRetry;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -272,6 +298,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @ZoomOut.started += instance.OnZoomOut;
                 @ZoomOut.performed += instance.OnZoomOut;
                 @ZoomOut.canceled += instance.OnZoomOut;
+                @Retry.started += instance.OnRetry;
+                @Retry.performed += instance.OnRetry;
+                @Retry.canceled += instance.OnRetry;
             }
         }
     }
@@ -282,5 +311,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnLeftRight(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnZoomOut(InputAction.CallbackContext context);
+        void OnRetry(InputAction.CallbackContext context);
     }
 }

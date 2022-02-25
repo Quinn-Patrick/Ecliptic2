@@ -11,5 +11,6 @@ namespace EclipticTwo.Core
         public List<bool> GetActionList();
         public bool GetAction();
         public bool GetZoom();
+        public bool GetRetry();
     }
 }

@@ -478,7 +478,7 @@ MonoBehaviour:
   _health: {fileID: 6871473855862169148}
   _fuelTank: {fileID: 7266082749915547778}
   _cargo: {fileID: 5114523527720889635}
-  _rope: {fileID: 0}
+  _rope: {fileID: 5462288314852217718}
   _respawnTime: 4
 --- !u!1 &8318369628007807722
 GameObject:

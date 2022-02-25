@@ -15,9 +15,9 @@ namespace EclipticTwo.Core
         public List<bool> GetActionList()
         {
             List<bool> output = new List<bool>
-        {
-            _controller.GetFire()
-        };
+            {
+                _controller.GetFire()
+            };
             return output;
         }
 
@@ -34,6 +34,10 @@ namespace EclipticTwo.Core
         public bool GetZoom()
         {
             return _controller.GetZoom();
+        }
+        public bool GetRetry()
+        {
+            return _controller.GetRetry();
         }
     }
 }

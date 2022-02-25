@@ -11,6 +11,7 @@ namespace EclipticTwo.Core
         private float _rotate;
         private bool _fire;
         private bool _zoom;
+        private bool _retry;
 
         private void Awake()
         {
@@ -20,11 +21,13 @@ namespace EclipticTwo.Core
             _gameplayControls.Gameplay.LeftRight.performed += ctx => _rotate = ctx.ReadValue<float>();
             _gameplayControls.Gameplay.Fire.performed += ctx => _fire = true;
             _gameplayControls.Gameplay.ZoomOut.performed += ctx => _zoom = true;
+            _gameplayControls.Gameplay.Retry.performed += ctx => _retry = true;
 
             _gameplayControls.Gameplay.UpDown.canceled += ctx => _thrust = 0f;
             _gameplayControls.Gameplay.LeftRight.canceled += ctx => _rotate = 0f;
             _gameplayControls.Gameplay.Fire.canceled += ctx => _fire = false;
             _gameplayControls.Gameplay.ZoomOut.canceled += ctx => _zoom = false;
+            _gameplayControls.Gameplay.Retry.canceled += ctx => _retry = false;
         }
 
         private void OnEnable()
@@ -50,6 +53,10 @@ namespace EclipticTwo.Core
         public bool GetZoom()
         {
             return _zoom;
+        }
+        public bool GetRetry()
+        {
+            return _retry;
         }
     }
 }
