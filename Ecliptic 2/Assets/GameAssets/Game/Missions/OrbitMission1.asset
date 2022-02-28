@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c8e5fc470ee0041b1cda16c013cb5a, type: 3}
   m_Name: OrbitMission1
   m_EditorClassIdentifier: 
-  missionName: Orbit Through RIngs
+  missionName: Orbit Through Rings
   description: Orbit through the rings without touching the ground.
   isRequired: 0
   orbitID: OrbitMission1
