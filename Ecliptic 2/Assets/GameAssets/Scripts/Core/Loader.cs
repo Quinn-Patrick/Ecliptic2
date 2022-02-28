@@ -2,16 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
-public static class Loader
+namespace EclipticTwo.Core
 {
-    public enum Scene
+    public static class Loader
     {
-        Level1,
-        Level2
-    }
-    public static void Load(Scene scene)
-    {
-        SceneManager.LoadScene(scene.ToString());
+        public enum Scene
+        {
+            Title,
+            Loading,
+            Level1,
+            Level2
+        }
+        private static Action _onLoaderCallback;
+        public static void Load(Scene scene)
+        {
+            SceneManager.LoadScene(scene.ToString());
+
+            _onLoaderCallback = () =>
+            {
+                SceneManager.LoadScene(Scene.Loading.ToString());
+            };
+        }
+        public static void LoaderCallback()
+        {
+            if (_onLoaderCallback != null)
+            {
+                _onLoaderCallback();
+                _onLoaderCallback = null;
+            }
+        }
     }
 }
