@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: Destroy Asteroids
   description: Completely destroy all of the asteroids.
-  isRequired: 0
+  isRequired: 1
   asteroidID: AsteroidMission1

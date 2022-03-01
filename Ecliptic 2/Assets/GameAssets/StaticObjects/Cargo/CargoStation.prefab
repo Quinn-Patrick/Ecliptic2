@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4981817118015365275}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CargoStation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1991374236475400223}
   - component: {fileID: 5973201163982837893}
   - component: {fileID: 563339922425735670}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CargoStation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 56952389967490340}
   - component: {fileID: 9170575669501656846}
   - component: {fileID: 2038862181199058681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

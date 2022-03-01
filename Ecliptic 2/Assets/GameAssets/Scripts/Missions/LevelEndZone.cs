@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using EclipticTwo.Core;
 
-namespace EclipticTwo.Core
+namespace EclipticTwo.Missions
 {
     public class LevelEndZone : MonoBehaviour, ITriggerObject
     {
@@ -11,6 +12,7 @@ namespace EclipticTwo.Core
         public static Action _exitedZone;
         public void PlayerEnter(Player player)
         {
+            if (!MissionCore.Instance.AllMissionsClear()) return;
             _enteredZone?.Invoke();
         }
 

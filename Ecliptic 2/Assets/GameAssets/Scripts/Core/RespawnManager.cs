@@ -15,11 +15,14 @@ namespace EclipticTwo.Respawn
         [SerializeField] private CargoGrabber _cargo;
         [SerializeField] private CargoRope _rope;
         [SerializeField] private IInputReader _input;
+        [SerializeField] private Rigidbody2D _body;
+
+        [SerializeField] private float _respawnTime;
+
         private bool _isDead;
         private bool _canRespawn = true;
         private float _respawnTimer;
-        [SerializeField] private float _respawnTime;
-
+        
         private void Awake()
         {
             _health.Dead += KillPlayer;
@@ -38,7 +41,6 @@ namespace EclipticTwo.Respawn
             }
             
         }
-
         private void RespawnInput()
         {
             if ( _input == null) return;
@@ -57,11 +59,20 @@ namespace EclipticTwo.Respawn
         private void KillPlayer()
         {
             _isDead = true;
+            _body.velocity = Vector2.zero;
+            _player.gameObject.SetActive(false);
+
             if (_rope == null) return;
             _rope.gameObject.SetActive(false);
         }
-
         private void Respawn()
+        {
+            _player.gameObject.SetActive(true);
+            _respawnTimer = 0f;
+            _isDead = false;
+            ResetPlayerCharacteristics();
+        }
+        private void ResetPlayerCharacteristics()
         {
             _player.transform.localScale = Vector2.one;
             _player.transform.position = _checker.GetCheckpointLocation();
@@ -69,12 +80,8 @@ namespace EclipticTwo.Respawn
             _health.RestoreHealth(float.MaxValue);
             _fuelTank.RestoreFuel();
             _cargo.ReturnCargo();
-            _respawnTimer = 0f;
-            _isDead = false;
-
-            Rigidbody2D playerBody = _player.GetComponent<Rigidbody2D>();
-            if (playerBody == null) return;
-            playerBody.velocity = Vector2.zero;
+            _player.ZeroAcceleration();
+            _body.velocity = Vector2.zero;
         }
     }
 }

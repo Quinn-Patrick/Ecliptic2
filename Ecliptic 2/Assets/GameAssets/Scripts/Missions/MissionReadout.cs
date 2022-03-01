@@ -13,9 +13,13 @@ namespace EclipticTwo.Gui
         [SerializeField] private Canvas _canvas;
         [SerializeField] private float _panelThickness;
         private int _missionCount = 0;
-        private void Awake()
+        private void OnEnable()
         {
             MissionCore.Instance.MissionGained += GainMission;
+        }
+        private void OnDisable()
+        {
+            MissionCore.Instance.MissionGained -= GainMission;
         }
         private void GainMission(IMission mission)
         {

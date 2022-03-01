@@ -30,6 +30,10 @@ namespace EclipticTwo.Core
         {
             _acceleration += DeltaA;
         }
+        public void ZeroAcceleration()
+        {
+            _acceleration = Vector2.zero;
+        }
         public Rigidbody2D GetBody()
         {
             return _body;

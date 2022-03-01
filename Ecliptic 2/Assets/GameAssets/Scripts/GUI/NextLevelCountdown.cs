@@ -5,7 +5,7 @@ using TMPro;
 using EclipticTwo.Core;
 using System;
 
-namespace EclipticTwo.Gui
+namespace EclipticTwo.Missions
 {
     public class NextLevelCountdown : MonoBehaviour
     {
