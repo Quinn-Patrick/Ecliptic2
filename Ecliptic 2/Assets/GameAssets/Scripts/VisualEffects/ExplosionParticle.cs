@@ -9,6 +9,7 @@ namespace EclipticTwo.VisualEffects
     {
         [SerializeField] private ParticleSystem _particle;
         [SerializeField] private HealthSystem _exploder;
+        [SerializeField] private Rigidbody2D _body;
         private float _lifetime;
         private bool _canExplode = true;
 
@@ -37,6 +38,9 @@ namespace EclipticTwo.VisualEffects
         private void FixedUpdate()
         {
             if (_exploder.GetCurrentHealth() > 0) _canExplode = true;
+
+            transform.localPosition = _body.transform.localPosition;
+
             if (_particle.isPaused) return;
             _lifetime += Time.fixedDeltaTime;
 
@@ -45,6 +49,8 @@ namespace EclipticTwo.VisualEffects
                 _particle.Pause();
                 _particle.time = 0;
             }
+
+            
         }
     }
 }

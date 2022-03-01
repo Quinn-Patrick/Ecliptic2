@@ -30,6 +30,12 @@ namespace EclipticTwo.Guns
                         return;
                     }
                     shotComp.InitializeShot(_owner.transform.position, _owner.transform.eulerAngles.z, 16f, 1f);
+                    Rigidbody2D shotBody = shot.GetComponent<Rigidbody2D>();
+                    if (shotBody == null) return;
+                    Rigidbody2D ownerBody = _owner.GetComponent<Rigidbody2D>();
+                    if (ownerBody == null) return;
+
+                    shotBody.velocity = ownerBody.velocity;
                 }
             }
             else

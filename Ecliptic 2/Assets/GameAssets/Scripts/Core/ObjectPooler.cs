@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace EclipticTwo.Core
 {
@@ -21,19 +22,38 @@ namespace EclipticTwo.Core
 
         private void Awake()
         {
-            if (Instance != null)
+            if (Instance == null)
             {
-                return;
+                Instance = this;
+                DontDestroyOnLoad(this);
             }
+            else
+            {
+                Destroy(this);
+            }
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
+        }
 
-            Instance = this;
-            DontDestroyOnLoad(this);
+        private void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            SceneManager.sceneUnloaded -= OnSceneUnloaded;
         }
 
         private void Start()
         {
-            poolDictionary = new Dictionary<string, Queue<GameObject>>();
+            InitiatePools();
+        }
 
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            InitiatePools();
+        }
+
+        private void InitiatePools()
+        {
+            poolDictionary = new Dictionary<string, Queue<GameObject>>();
             foreach (Pool p in pools)
             {
                 Queue<GameObject> objectPool = new Queue<GameObject>();
@@ -46,6 +66,11 @@ namespace EclipticTwo.Core
                 }
                 poolDictionary.Add(p.tag, objectPool);
             }
+        }
+
+        private void OnSceneUnloaded(Scene scene)
+        {
+            poolDictionary.Clear();
         }
 
         public GameObject SpawnFromPool(string tag)

@@ -17,12 +17,12 @@ namespace EclipticTwo.Core
             _fuelSystem = GetComponent<Fuel>();
             _thrustSystem = GetComponent<Thruster>();
             _rotationSystem = GetComponent<Rotator>();
-
         }
         protected void Start()
         {
             Game.gravitators.Add(this);
         }
+
         public Fuel GetFuelSystem()
         {
             return _fuelSystem;

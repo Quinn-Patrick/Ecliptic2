@@ -36,5 +36,17 @@ namespace EclipticTwo.Missions
         {
             Missions.Remove(mission);
         }
+        public bool AllMissionsClear()
+        {
+            bool allClear = true;
+            foreach(IMission m in Missions)
+            {
+                if(m.IsRequired() && !m.IsComplete())
+                {
+                    allClear = false;
+                }
+            }
+            return allClear;
+        }
     }
 }

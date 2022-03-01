@@ -9,6 +9,22 @@ namespace EclipticTwo.Core
     {
         public static List<MassiveBody> planets = new List<MassiveBody>();
         public static List<GravitatingBody> gravitators = new List<GravitatingBody>();
+
+        private static Game Instance = null;
+        private void Awake()
+        {
+            if(Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
+
+            planets = new List<MassiveBody>();
+            gravitators = new List<GravitatingBody>();
+        }
         public static List<MassiveBody> GetPlanets()
         {
             return planets;
