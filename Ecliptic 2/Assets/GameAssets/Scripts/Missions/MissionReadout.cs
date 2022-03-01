@@ -11,6 +11,7 @@ namespace EclipticTwo.Gui
     {
         [SerializeField] private GameObject _panelPrefab;
         [SerializeField] private Canvas _canvas;
+        [SerializeField] private float _panelThickness;
         private int _missionCount = 0;
         private void Awake()
         {
@@ -25,7 +26,7 @@ namespace EclipticTwo.Gui
             _missionCount++;
 
             panelTransform.SetParent(_canvas.gameObject.transform);
-            panelTransform.anchoredPosition = new Vector3(0f, -24f * _missionCount + 12f, 0f);
+            panelTransform.anchoredPosition = new Vector3(0f, -_panelThickness * _missionCount + (_panelThickness), 0f);
 
             newPanelComponent.SetMission(mission);
         }

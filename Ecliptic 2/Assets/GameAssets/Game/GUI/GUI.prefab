@@ -836,6 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _panelPrefab: {fileID: 7476311623170629796}
   _canvas: {fileID: 8072704448669714239}
+  _panelThickness: 5
 --- !u!1 &8072704448669714234
 GameObject:
   m_ObjectHideFlags: 0

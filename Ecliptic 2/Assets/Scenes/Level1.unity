@@ -6429,6 +6429,10 @@ PrefabInstance:
       propertyPath: _dataSource
       value: 
       objectReference: {fileID: 1644171967}
+    - target: {fileID: 8072704448350004826, guid: a8de341a77c31954ab893eb78e3683d8, type: 3}
+      propertyPath: _panelThickness
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8072704448669714234, guid: a8de341a77c31954ab893eb78e3683d8, type: 3}
       propertyPath: m_Name
       value: GUI
