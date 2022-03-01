@@ -43,7 +43,6 @@ namespace EclipticTwo.Core
 
         private void Start()
         {
-            poolDictionary = new Dictionary<string, Queue<GameObject>>();
             InitiatePools();
         }
 
@@ -54,6 +53,7 @@ namespace EclipticTwo.Core
 
         private void InitiatePools()
         {
+            poolDictionary = new Dictionary<string, Queue<GameObject>>();
             foreach (Pool p in pools)
             {
                 Queue<GameObject> objectPool = new Queue<GameObject>();
