@@ -22,6 +22,11 @@ namespace EclipticTwo.Trajectory
         private void FixedUpdate()
         {
             if (_player.GetBody() == null) return;
+            CalculatePointVelocity();
+        }
+
+        private void CalculatePointVelocity()
+        {
             TrajectoryPoint lastPoint = _points[0];
             lastPoint.velocity = _player.GetBody().velocity;
             lastPoint.transform.position = _player.transform.position;
@@ -49,6 +54,7 @@ namespace EclipticTwo.Trajectory
                 lastPoint = p;
             }
         }
+
         private bool IsTooClose(Vector3 position, MassiveBody m)
         {
             return Vector3.Distance(position, m.transform.position) < m.GetRadius() / 2;
