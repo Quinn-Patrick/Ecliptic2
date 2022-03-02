@@ -10,6 +10,9 @@ namespace EclipticTwo.Guns
         [SerializeField] private DynamicEntity _owner;
         private IInputReader _input;
         private bool _canShoot;
+
+        public delegate void ShotHandler();
+        public event ShotHandler shotFired;
         private void Awake()
         {
             _input = GetComponent<IInputReader>();
@@ -29,12 +32,14 @@ namespace EclipticTwo.Guns
                         ObjectPooler.Instance.ReturnToPool("shots", shot);
                         return;
                     }
+                    shotFired?.Invoke();
+                    
                     shotComp.InitializeShot(_owner.transform.position, _owner.transform.eulerAngles.z, 16f, 1f);
                     Rigidbody2D shotBody = shot.GetComponent<Rigidbody2D>();
                     if (shotBody == null) return;
                     Rigidbody2D ownerBody = _owner.GetComponent<Rigidbody2D>();
                     if (ownerBody == null) return;
-
+                    
                     shotBody.velocity = ownerBody.velocity;
                 }
             }
