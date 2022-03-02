@@ -39,7 +39,7 @@ namespace EclipticTwo.Core
 
         public static float FindEntityAngle(Vector3 Point_1, Vector3 Point_2)
         {
-            float angle = Mathf.Atan2(Point_2.y - Point_1.y, Point_2.x - Point_1.x);
+            float angle = atan2(Point_2.y - Point_1.y, Point_2.x - Point_1.x);
             return Mathf.Rad2Deg * angle;
         }
         public static Vector3 ComputeTotalAcceleration(GravitatingBody g)
@@ -63,7 +63,7 @@ namespace EclipticTwo.Core
         public static Vector3 ComputeInstantAcceleration(Vector3 positionG, Vector3 positionM, float mass, float gMass)
         {
             float distance = Vector3.Distance(positionG, positionM);
-            float angle = FindEntityAngle(positionM, positionG);
+            
             float mag = -mass * gMass / (distance * distance);
 
             if (abs(mag) < 2)
@@ -71,6 +71,7 @@ namespace EclipticTwo.Core
                 return Vector3.zero;
             }
 
+            float angle = FindEntityAngle(positionM, positionG);
             float forcex = mag * cos(Mathf.Deg2Rad * angle);
             float forcey = mag * sin(Mathf.Deg2Rad * angle);
             return new Vector3(forcex, forcey, 0f);
