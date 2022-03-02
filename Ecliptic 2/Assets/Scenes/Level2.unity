@@ -765,7 +765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1406727058344396293, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
       propertyPath: _timestep
-      value: 0.25
+      value: 0.0625
       objectReference: {fileID: 0}
     - target: {fileID: 1438015707341378193, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
       propertyPath: m_Mass

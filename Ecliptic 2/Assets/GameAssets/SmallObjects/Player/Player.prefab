@@ -5010,8 +5010,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointTemplate: {fileID: 7480765879897867983}
-  _length: 400
-  _timestep: 0.125
+  _length: 200
+  _timestep: 0.0625
   _player: {fileID: 2006834026112244975}
 --- !u!1 &6221326871554171119
 GameObject:
@@ -5085,7 +5085,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 905a18b3879555e4d99ddce6d2a1bbe5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e22ac55a8dcb9d4db6cf72d66b6189d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EclipticTwo.Core;
 
+
 namespace EclipticTwo.Trajectory
 {
     public class TrajectoryPoint : MonoBehaviour
@@ -16,5 +17,6 @@ namespace EclipticTwo.Trajectory
             rend = GetComponent<SpriteRenderer>();
             _transform = gameObject.transform;
         }
+        
     }
 }
