@@ -15,7 +15,8 @@ namespace EclipticTwo.Core
         private void Update()
         {
             if (_player == null) return;
-            transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, GetZoomLevel());
+            float shake = ScreenShake.Instance.GetShake();
+            transform.position = new Vector3(_player.transform.position.x + Random.Range(-shake, shake), _player.transform.position.y + Random.Range(-shake, shake), GetZoomLevel());
         }
         private float GetZoomLevel()
         {

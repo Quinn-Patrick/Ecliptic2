@@ -15,6 +15,9 @@ namespace EclipticTwo.Core
         public delegate void DeathHandler();
         public event DeathHandler Dead;
 
+        public delegate void DamageHandler(float damage);
+        public event DamageHandler Damaged;
+
         private void Awake()
         {
             _currentHealth = _maxHealth;
@@ -31,8 +34,12 @@ namespace EclipticTwo.Core
             Debug.Log($"Collision at relative speed {relativeSpeed} with {collision.gameObject}");
 
             if (relativeSpeed < _minimumCrashSpeed) return;
+            float damage = Mathf.Pow((relativeSpeed - _minimumCrashSpeed), 2) * _crashDamageMultiplier;
+            _currentHealth -= damage;
 
-            _currentHealth -= Mathf.Pow((relativeSpeed - _minimumCrashSpeed), 2) * _crashDamageMultiplier;
+            Damaged?.Invoke(damage);
+            
+            
             EnsureHealth();
         }
         private void Update()
