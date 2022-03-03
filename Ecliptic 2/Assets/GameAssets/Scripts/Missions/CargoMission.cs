@@ -12,10 +12,10 @@ namespace EclipticTwo.Missions
         private string _name;
         private string _description;
         private bool _isRequired;
-        private List<CargoStation> _stations = new List<CargoStation>();
+        private readonly List<CargoStation> _stations = new List<CargoStation>();
         private int _stationsComplete;
         private int _targetStations;
-        private MissionType _type = MissionType.Cargo;
+        private readonly MissionType _type = MissionType.Cargo;
         private bool _isComplete = false;
         private void Start()
         {
