@@ -5024,8 +5024,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointTemplate: {fileID: 7480765879897867983}
-  _length: 200
-  _timestep: 0.0625
+  _length: 100
+  _timestep: 0.125
   _player: {fileID: 2006834026112244975}
 --- !u!1 &6221326871554171119
 GameObject:

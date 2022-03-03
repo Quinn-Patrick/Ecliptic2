@@ -947,6 +947,10 @@ PrefabInstance:
       propertyPath: _maxFuel
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7830763164516752879, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9090764316805498502, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
       propertyPath: m_RootOrder
       value: 0
