@@ -73,7 +73,7 @@ namespace EclipticTwo.Trajectory
 
         private void AdjustPointDimensions(TrajectoryPoint p)
         {
-            p.transform.localScale = new Vector2(p.velocity.magnitude * 4f, 1f);
+            p.transform.localScale = new Vector2((p.velocity.magnitude * (_timestep*25)), 1f);
             float angle = Vector3.Angle(p.velocity, new Vector3(1f, 0f, 0f)) * sign(p.velocity.y);
             p.transform.eulerAngles = new Vector3(0f, 0f, angle);
         }
