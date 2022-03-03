@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: Orbit Through Rings
   description: Orbit through the rings without touching the ground.
-  isRequired: 1
+  isRequired: 0
   orbitID: OrbitMission1

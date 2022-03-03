@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: Deliver Cargo
   description: Deliver cargo to all of the bases.
-  isRequired: 1
+  isRequired: 0
   cargoID: CargoMission1
