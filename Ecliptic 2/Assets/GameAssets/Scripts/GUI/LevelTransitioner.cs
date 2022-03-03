@@ -10,6 +10,7 @@ namespace EclipticTwo.Gui
     public class LevelTransitioner : MonoBehaviour
     {
         [SerializeField] private Animator _anim;
+        [SerializeField] Loader.Scene _nextLevel;
         private readonly string _trigger = "LevelOver";
         private void OnEnable()
         {
@@ -21,7 +22,7 @@ namespace EclipticTwo.Gui
         }
         public void TransitionLevel(Loader.Scene scene)
         {
-            Loader.Load(scene);
+            Loader.Load(_nextLevel);
         }
         private void ActivateWipe()
         {
