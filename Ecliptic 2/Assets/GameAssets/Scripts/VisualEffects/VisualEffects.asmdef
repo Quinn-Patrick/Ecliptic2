@@ -1,0 +1,16 @@
+{
+    "name": "VisualEffects",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b70bd8513a7de08428f0871f23ddea58"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

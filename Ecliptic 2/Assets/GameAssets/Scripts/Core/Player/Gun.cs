@@ -12,7 +12,7 @@ namespace EclipticTwo.Guns
         private bool _canShoot;
 
         public delegate void ShotHandler();
-        public event ShotHandler shotFired;
+        public event ShotHandler ShotFired;
         private void Awake()
         {
             _input = GetComponent<IInputReader>();
@@ -32,7 +32,7 @@ namespace EclipticTwo.Guns
                         ObjectPooler.Instance.ReturnToPool("shots", shot);
                         return;
                     }
-                    shotFired?.Invoke();
+                    ShotFired?.Invoke();
                     
                     shotComp.InitializeShot(_owner.transform.position, _owner.transform.eulerAngles.z, 16f, 1f);
                     Rigidbody2D shotBody = shot.GetComponent<Rigidbody2D>();

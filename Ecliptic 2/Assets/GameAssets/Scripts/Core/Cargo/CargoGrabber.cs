@@ -27,7 +27,11 @@ namespace EclipticTwo.Cargo
             _currentCargo = cargo;
             DeactivateCargoCollectible(_currentCargo);
             _rope.gameObject.SetActive(true);
+            
             _rope.ActivatePayload(cargo.transform);
+            SpriteRenderer cargoSprite = _currentCargo.GetComponent<SpriteRenderer>();
+            if (cargoSprite == null) return;
+            _rope.SetPayloadColor(cargoSprite.color);
         }
         public void UnloadCargo()
         {

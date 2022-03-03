@@ -11,11 +11,11 @@ namespace EclipticTwo.Guns {
 
         private void OnEnable()
         {
-            _gun.shotFired += ShakeScreen;
+            _gun.ShotFired += ShakeScreen;
         }
         private void OnDisable()
         {
-            _gun.shotFired -= ShakeScreen;
+            _gun.ShotFired -= ShakeScreen;
         }
 
         private void ShakeScreen()
