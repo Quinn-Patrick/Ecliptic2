@@ -47,6 +47,7 @@ namespace EclipticTwo.Missions
                 }
             }
         }
+
         public void AcquireMission()
         {
             MissionCore.Instance.GainMission(this);

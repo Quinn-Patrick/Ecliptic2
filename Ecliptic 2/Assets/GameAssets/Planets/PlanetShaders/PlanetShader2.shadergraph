@@ -2,7 +2,11 @@
     "m_SGVersion": 2,
     "m_Type": "UnityEditor.ShaderGraph.GraphData",
     "m_ObjectId": "fcbc93b2b12549158a1680555af9ed11",
-    "m_Properties": [],
+    "m_Properties": [
+        {
+            "m_Id": "e79f9b1402644a7d96807d5f95d5a2e1"
+        }
+    ],
     "m_Keywords": [],
     "m_Nodes": [
         {
@@ -637,5 +641,28 @@
     "m_TwoSided": false,
     "m_AlphaClip": false,
     "m_CustomEditorGUI": ""
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "e79f9b1402644a7d96807d5f95d5a2e1",
+    "m_Guid": {
+        "m_GuidSerialized": "dd128d69-078e-4b9b-958d-61389ab52f30"
+    },
+    "m_Name": "_MainTex",
+    "m_DefaultReferenceName": "Texture2D_e79f9b1402644a7d96807d5f95d5a2e1",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": false,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":10307,\"guid\":\"0000000000000000f000000000000000\",\"type\":0}}",
+        "m_Guid": ""
+    },
+    "m_Modifiable": true,
+    "m_DefaultType": 0
 }
 

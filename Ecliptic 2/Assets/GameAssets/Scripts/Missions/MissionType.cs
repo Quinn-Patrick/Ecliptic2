@@ -7,9 +7,10 @@ namespace EclipticTwo.Missions
 {
     public enum MissionType
     {
-        Cargo,
-        Asteroids,
-        Orbit,
-        Race
+        Cargo = 0,
+        Asteroids = 1,
+        Orbit = 2,
+        Race = 3,
+        Boss = 4
     }
 }
