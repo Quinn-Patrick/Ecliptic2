@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EclipticTwo.Core;
+using EclipticTwo.TimingAndScoring;
 using EclipticTwo.Cargo;
 
 namespace EclipticTwo.Missions
 {
     public class CargoMission : MonoBehaviour, IMission
     {
-        [SerializeField] private CargoMissionData _missionData;
+        [SerializeField] private CargoMissionData _data;
         private string _name;
         private string _description;
         private bool _isRequired;
@@ -17,13 +18,21 @@ namespace EclipticTwo.Missions
         private int _targetStations;
         private readonly MissionType _type = MissionType.Cargo;
         private bool _isComplete = false;
+
+        private int _baseScore;
+        private int _baseTimeBonus;
+        private float _bonusTime;
         private void Start()
         {
             AcquireMission();
-            _name = _missionData.missionName;
-            _description = _missionData.description;
-            _isRequired = _missionData.isRequired;
-            foreach (GameObject cs in GameObject.FindGameObjectsWithTag(_missionData.cargoID))
+            _name = _data.missionName;
+            _description = _data.description;
+            _isRequired = _data.isRequired;
+
+            _baseScore = _data.baseScore;
+            _baseTimeBonus = _data.baseTimeBonus;
+            _bonusTime = _data.bonusTime;
+            foreach (GameObject cs in GameObject.FindGameObjectsWithTag(_data.cargoID))
             {
                 CargoStation station = cs.GetComponent<CargoStation>();
                 if (station == null) continue;
@@ -54,6 +63,7 @@ namespace EclipticTwo.Missions
             {
                 station.Complete -= CompleteStation;
             }
+            Score.Instance.GainScoreTimeBonus(_baseScore, _baseTimeBonus, _bonusTime);
         }
 
         public string GetMissionDescription()

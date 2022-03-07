@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EclipticTwo.Core;
+using EclipticTwo.TimingAndScoring;
 using EclipticTwo.Rings;
 
 namespace EclipticTwo.Missions
 {
     public class OrbitMission : MonoBehaviour, IMission
     {
-        [SerializeField] private OrbitMissionData _missionData;
+        [SerializeField] private OrbitMissionData _data;
         [SerializeField] private Player _player;
 
         private string _name;
@@ -19,13 +20,21 @@ namespace EclipticTwo.Missions
         private bool _isComplete;
         private MissionType _type = MissionType.Orbit;
         private List<GoalRing> _rings = new List<GoalRing>();
+
+        private int _baseScore;
+        private int _baseTimeBonus;
+        private float _bonusTime;
         private void Start()
         {
             AcquireMission();
-            _name = _missionData.missionName;
-            _description = _missionData.description;
-            _isRequired = _missionData.isRequired;
-            foreach (GameObject goalRingObject in GameObject.FindGameObjectsWithTag(_missionData.orbitID))
+            _name = _data.missionName;
+            _description = _data.description;
+            _isRequired = _data.isRequired;
+
+            _baseScore = _data.baseScore;
+            _baseTimeBonus = _data.baseTimeBonus;
+            _bonusTime = _data.bonusTime;
+            foreach (GameObject goalRingObject in GameObject.FindGameObjectsWithTag(_data.orbitID))
             {
                 GoalRing ring = goalRingObject.GetComponent<GoalRing>();
                 if (ring == null) continue;
@@ -58,6 +67,7 @@ namespace EclipticTwo.Missions
             {
                 ring.Cleared -= ClearRing;
             }
+            Score.Instance.GainScoreTimeBonus(_baseScore, _baseTimeBonus, _bonusTime);
         }
 
         public string GetMissionDescription()

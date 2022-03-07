@@ -15,4 +15,7 @@ MonoBehaviour:
   missionName: Destroy Asteroids
   description: Completely destroy all of the asteroids.
   isRequired: 0
+  baseScore: 2000
+  baseTimeBonus: 2000
+  bonusTime: 60
   asteroidID: AsteroidMission1

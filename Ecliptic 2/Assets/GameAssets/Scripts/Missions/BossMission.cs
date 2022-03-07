@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EclipticTwo.TimingAndScoring;
 using EclipticTwo.Core;
 
 namespace EclipticTwo.Missions
@@ -15,14 +16,22 @@ namespace EclipticTwo.Missions
         private string _description;
         private bool _isRequired;
         private bool _isComplete;
-
         [SerializeField] private BossMissionData _data;
+
+        private int _baseScore;
+        private int _baseTimeBonus;
+        private float _bonusTime;
         private void Start()
         {
             AcquireMission();
             _name = _data.missionName;
             _description = _data.description;
             _isRequired = _data.isRequired;
+
+            _baseScore = _data.baseScore;
+            _baseTimeBonus = _data.baseTimeBonus;
+            _bonusTime = _data.bonusTime;
+
             foreach (GameObject b in GameObject.FindGameObjectsWithTag(_data.planetID))
             {
                 MassiveBody boss = b.GetComponent<MassiveBody>();
@@ -58,6 +67,7 @@ namespace EclipticTwo.Missions
             {
                 b.Destroyed -= (b) => DestroyBoss(b);
             }
+            Score.Instance.GainScoreTimeBonus(_baseScore, _baseTimeBonus, _bonusTime);
         }
 
         public string GetMissionDescription()

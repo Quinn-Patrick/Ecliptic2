@@ -2730,6 +2730,8 @@ GameObject:
   - component: {fileID: 1545210923}
   - component: {fileID: 1545210925}
   - component: {fileID: 1545210926}
+  - component: {fileID: 1545210927}
+  - component: {fileID: 1545210928}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -2788,6 +2790,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shakeDecay: 4
+--- !u!114 &1545210927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545210922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 011381ffa2394e24db1e3b9dffe9cd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1545210928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545210922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d4b26b85a5c544c96bae503b623015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1639557149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2911,7 +2937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eacfd3cb3a137a42b0f9bd94bfe234a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _missionData: {fileID: 11400000, guid: b511eaad9c524df428615a4a8573edf1, type: 2}
+  _data: {fileID: 11400000, guid: b511eaad9c524df428615a4a8573edf1, type: 2}
 --- !u!4 &1657062195
 Transform:
   m_ObjectHideFlags: 0
@@ -2955,7 +2981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b0bb4ccfbee454bb247782424f3fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _missionData: {fileID: 11400000, guid: 0246f2b2575150443b6748746ad8fbee, type: 2}
+  _data: {fileID: 11400000, guid: 0246f2b2575150443b6748746ad8fbee, type: 2}
   _player: {fileID: 1873505824}
 --- !u!4 &1715028180
 Transform:
