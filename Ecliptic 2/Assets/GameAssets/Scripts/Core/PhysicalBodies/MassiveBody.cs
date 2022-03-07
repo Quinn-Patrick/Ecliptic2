@@ -16,6 +16,10 @@ namespace EclipticTwo.Core
         {
             Game.planets.Add(this);
         }
+        private void OnDestroy()
+        {
+            Game.planets.Remove(this);
+        }
         public float GetMass()
         {
             return _mass;

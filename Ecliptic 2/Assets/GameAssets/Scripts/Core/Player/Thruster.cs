@@ -13,8 +13,7 @@ namespace EclipticTwo.Core
         [SerializeField] private float _power;
         [SerializeField] private GameObject _exhaust;
         private Fuel _fuel;
-
-        bool _canThrust = true;
+        readonly bool _canThrust = true;
 
         private void Awake()
         {
