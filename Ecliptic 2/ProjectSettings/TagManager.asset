@@ -8,6 +8,7 @@ TagManager:
   - AsteroidMission1
   - CargoMission1
   - OrbitMission1
+  - Boss1
   layers:
   - Default
   - TransparentFX

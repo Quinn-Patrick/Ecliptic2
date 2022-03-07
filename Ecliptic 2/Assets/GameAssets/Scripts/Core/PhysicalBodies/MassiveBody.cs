@@ -8,6 +8,9 @@ namespace EclipticTwo.Core
     {
         [SerializeField] private float _mass;
         private float _radius;
+
+        public delegate void DestructionHandler(MassiveBody planet);
+        public event DestructionHandler Destroyed;
         private void Awake()
         {
             _radius = this.transform.localScale.x;
@@ -19,6 +22,7 @@ namespace EclipticTwo.Core
         private void OnDestroy()
         {
             Game.planets.Remove(this);
+            Destroyed?.Invoke(this);
         }
         public float GetMass()
         {

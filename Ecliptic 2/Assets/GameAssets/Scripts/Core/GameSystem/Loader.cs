@@ -16,7 +16,8 @@ namespace EclipticTwo.Core
             Level2,
             level3,
             level4,
-            level5
+            level5,
+            level6
         }
         private static Action _onLoaderCallback;
         public static void Load(Scene scene)
