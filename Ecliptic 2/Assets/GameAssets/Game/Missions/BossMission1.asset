@@ -15,4 +15,7 @@ MonoBehaviour:
   missionName: Destroy the Enemy Base!
   description: Shoot between the radial shields to hit the base directly!
   isRequired: 1
+  baseScore: 10000
+  baseTimeBonus: 5000
+  bonusTime: 90
   planetID: Boss1

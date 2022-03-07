@@ -10,6 +10,9 @@ namespace EclipticTwo.Missions
         public string missionName;
         public string description;
         public bool isRequired;
+        public int baseScore;
+        public int baseTimeBonus;
+        public int bonusTime;
 
         public string planetID;
     }

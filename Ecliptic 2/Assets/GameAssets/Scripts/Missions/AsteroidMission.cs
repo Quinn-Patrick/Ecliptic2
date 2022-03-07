@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EclipticTwo.Core;
+using EclipticTwo.TimingAndScoring;
 using EclipticTwo.Asteroids;
 
 namespace EclipticTwo.Missions
@@ -17,6 +18,10 @@ namespace EclipticTwo.Missions
         private bool _isRequired;
         private bool _isComplete;
 
+        private int _baseScore;
+        private int _baseTimeBonus;
+        private float _bonusTime;
+
         [SerializeField] private AsteroidMissionData _data;
         private void Start()
         {
@@ -24,6 +29,10 @@ namespace EclipticTwo.Missions
             _name = _data.missionName;
             _description = _data.description;
             _isRequired = _data.isRequired;
+
+            _baseScore = _data.baseScore;
+            _baseTimeBonus = _data.baseTimeBonus;
+            _bonusTime = _data.bonusTime;
             foreach (GameObject a in GameObject.FindGameObjectsWithTag(_data.asteroidID))
             {
                 Asteroid asteroid = a.GetComponent<Asteroid>();
@@ -60,6 +69,7 @@ namespace EclipticTwo.Missions
             {
                 a.Destroyed -= (a) => DestroyAsteroid(a);
             }
+            Score.Instance.GainScoreTimeBonus(_baseScore, _baseTimeBonus, _bonusTime);
         }
 
         public string GetMissionProgress()

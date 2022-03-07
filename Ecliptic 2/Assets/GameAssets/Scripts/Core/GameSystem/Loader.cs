@@ -20,6 +20,9 @@ namespace EclipticTwo.Core
             level6
         }
         private static Action _onLoaderCallback;
+
+        public delegate void LevelLoadHandler ();
+        public static event LevelLoadHandler LevelLoaded;
         public static void Load(Scene scene)
         {
             SceneManager.LoadScene(scene.ToString());
@@ -28,6 +31,8 @@ namespace EclipticTwo.Core
             {
                 SceneManager.LoadScene(Scene.Loading.ToString());
             };
+
+            LevelLoaded?.Invoke();
         }
         public static void LoaderCallback()
         {

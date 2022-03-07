@@ -15,4 +15,7 @@ MonoBehaviour:
   missionName: Deliver Cargo
   description: Deliver cargo to all of the bases.
   isRequired: 0
+  baseScore: 3000
+  baseTimeBonus: 3000
+  bonusTime: 90
   cargoID: CargoMission1
