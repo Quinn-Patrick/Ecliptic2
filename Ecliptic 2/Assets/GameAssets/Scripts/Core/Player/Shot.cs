@@ -29,7 +29,7 @@ namespace EclipticTwo.Guns
         {
             Vector2 vectorAngle = new Vector2(cos(radians(angle)), sin(radians(angle)));
             RaycastHit2D rayHit = Physics2D.Raycast(origin, vectorAngle, range, mask);
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 16; i++)
             {
                 rayHit = Physics2D.Raycast(origin, vectorAngle, range, mask);
                 if (rayHit.collider != null) break;

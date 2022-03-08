@@ -689,6 +689,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0ade5aa1ab7317428d8a425ee3ea5ae, type: 3}
+--- !u!4 &762967222 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1372814134097883554, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
+  m_PrefabInstance: {fileID: 470113287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &762967223 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 1438015707341378193, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
+  m_PrefabInstance: {fileID: 470113287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &762967225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7266082749915547778, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
+  m_PrefabInstance: {fileID: 470113287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266a3dc60c6776c43b45368b83ce876c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &768312319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1560,10 +1581,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6142208421824845750, guid: a8de341a77c31954ab893eb78e3683d8, type: 3}
+      propertyPath: _object
+      value: 
+      objectReference: {fileID: 762967222}
     - target: {fileID: 8072704447636526660, guid: a8de341a77c31954ab893eb78e3683d8, type: 3}
       propertyPath: _dataSource
       value: 
       objectReference: {fileID: 470113289}
+    - target: {fileID: 8072704448302443692, guid: a8de341a77c31954ab893eb78e3683d8, type: 3}
+      propertyPath: _dataSource
+      value: 
+      objectReference: {fileID: 762967223}
     - target: {fileID: 8072704448669714234, guid: a8de341a77c31954ab893eb78e3683d8, type: 3}
       propertyPath: m_Name
       value: GUI
@@ -1652,5 +1681,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8072704448712819734, guid: a8de341a77c31954ab893eb78e3683d8, type: 3}
+      propertyPath: _fuelTank
+      value: 
+      objectReference: {fileID: 762967225}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8de341a77c31954ab893eb78e3683d8, type: 3}
