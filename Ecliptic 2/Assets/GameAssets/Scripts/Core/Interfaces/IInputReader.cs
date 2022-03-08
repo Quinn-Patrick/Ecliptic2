@@ -12,5 +12,6 @@ namespace EclipticTwo.Core
         public bool GetAction();
         public bool GetZoom();
         public bool GetRetry();
+        public bool GetPause();
     }
 }
