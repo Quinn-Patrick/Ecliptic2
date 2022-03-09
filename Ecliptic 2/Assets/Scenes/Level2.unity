@@ -998,6 +998,10 @@ PrefabInstance:
       propertyPath: _nextLevel
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6142208421824845750, guid: a8de341a77c31954ab893eb78e3683d8, type: 3}
+      propertyPath: _object
+      value: 
+      objectReference: {fileID: 1218536728}
     - target: {fileID: 8072704447636526660, guid: a8de341a77c31954ab893eb78e3683d8, type: 3}
       propertyPath: _dataSource
       value: 
@@ -1442,6 +1446,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 33766b81988fc0445946e17712a12c86, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57dd5386b7654e44aae5d5cdec69e346, type: 3}
+--- !u!4 &1218536728 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1372814134097883554, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
+  m_PrefabInstance: {fileID: 470113287}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1233352805
 PrefabInstance:
   m_ObjectHideFlags: 0

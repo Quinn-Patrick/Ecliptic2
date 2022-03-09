@@ -10,31 +10,35 @@ namespace EclipticTwo.Asteroids
         [SerializeField] private float _radius;
         private readonly GameObject[] _subAsteroids = new GameObject[2];
         [SerializeField] private bool _splits;
+        private bool _hasAlreadySplit = false;
         private float age;
 
         public delegate void DestroyHandler(Asteroid a);
         public event DestroyHandler Destroyed;
 
-        private new void Start()
+        public new void Start()
         {
             age = 0;
             base.Start();
             _transform.localScale = new Vector3(_radius, _radius, 0f);
             _body.mass = 1000 * _radius * _radius;
-            if (!_splits) return;
+            CreateSplitAsteroids();
+        }
+        public void CreateSplitAsteroids()
+        {
+            if (!_splits || _hasAlreadySplit) return;
             if (_radius > 0.126)
             {
                 for (int i = 0; i < _subAsteroids.Length; i++)
                 {
-                    _subAsteroids[i] = Instantiate(this.gameObject);
-                    _subAsteroids[i].GetComponent<Asteroid>().SetRadius(_radius / 2);
+                    _subAsteroids[i] = Instantiate(gameObject);
+                    Asteroid newSubAsteroid = _subAsteroids[i].GetComponent<Asteroid>();
+                    newSubAsteroid.SetRadius(_radius / 2);
+                    newSubAsteroid.Start();
                     _subAsteroids[i].SetActive(false);
                 }
             }
-            else
-            {
-                _splits = false;
-            }
+            _hasAlreadySplit = true;
         }
         private void OnEnable()
         {
@@ -70,29 +74,30 @@ namespace EclipticTwo.Asteroids
             Destroyed?.Invoke(this);
             if (!_splits)
             {
-                Destroy(this.gameObject);
+                gameObject.SetActive(false);
+                //Destroy(gameObject);
                 return;
             }
             SplitAsteroid();
-
-            this.gameObject.SetActive(false);
-
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
 
         private void SplitAsteroid()
         {
+            if (_subAsteroids[0] == null) return;
             _subAsteroids[0].transform.position = _transform.position + new Vector3(_radius / 2, _radius / 2, 0);
             _subAsteroids[0].SetActive(true);
             Rigidbody2D _subAstBody = _subAsteroids[0].GetComponent<Rigidbody2D>();
             _subAstBody.velocity = _body.velocity;
-            ApplyPerpendicularForce(_subAstBody, 1);
+            //ApplyPerpendicularForce(_subAstBody, 1);
 
+            if (_subAsteroids[1] == null) return;
             _subAsteroids[1].transform.position = _transform.position - new Vector3(_radius / 2, _radius / 2, 0);
             _subAsteroids[1].SetActive(true);
             _subAstBody = _subAsteroids[1].GetComponent<Rigidbody2D>();
             _subAstBody.velocity = _body.velocity;
-            ApplyPerpendicularForce(_subAstBody, -1);
+            //ApplyPerpendicularForce(_subAstBody, -1);
         }
 
         private void ApplyPerpendicularForce(Rigidbody2D asteroid, float multiplier)

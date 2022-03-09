@@ -7,7 +7,7 @@ namespace EclipticTwo.Asteroids
 {
     public class RandomAsteroidShape : MonoBehaviour
     {
-        private SpriteRenderer _sprite;
+        [SerializeField] private SpriteRenderer _sprite;
         [SerializeField] private List<Sprite> _spriteList = new List<Sprite>();
 
         private void Start()

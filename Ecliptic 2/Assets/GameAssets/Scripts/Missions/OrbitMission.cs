@@ -65,6 +65,7 @@ namespace EclipticTwo.Missions
             _player.Impacted -= ResetMission;
             foreach (GoalRing ring in _rings)
             {
+                ring.gameObject.SetActive(false);
                 ring.Cleared -= ClearRing;
             }
             Score.Instance.GainScoreTimeBonus(_baseScore, _baseTimeBonus, _bonusTime);

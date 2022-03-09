@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6174322169303726910}
   - component: {fileID: 6205647622991801050}
   - component: {fileID: 6123842926539615319}
+  - component: {fileID: 660045314085926489}
   m_Layer: 0
   m_Name: Dynamic Sprite
   m_TagString: Untagged
@@ -183,6 +184,21 @@ MonoBehaviour:
   _thrustSystem: {fileID: 0}
   _rotationSystem: {fileID: 0}
   _grabber: {fileID: 0}
+--- !u!114 &660045314085926489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2920792785655960391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e89a13df385bb0459db0f64e0c1cae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseObject: {fileID: 4986131388114978638, guid: d1959cfd1163f4442af2b70507083f96, type: 3}
+  _sprite: {fileID: 21300000, guid: ffa390d4c4b1d4749b65cc55145cf056, type: 3}
+  _size: 10
 --- !u!1 &6289216988397165811
 GameObject:
   m_ObjectHideFlags: 0

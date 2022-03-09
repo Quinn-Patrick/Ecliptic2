@@ -12,6 +12,8 @@ namespace EclipticTwo.Gui
         [SerializeField] private GameObject _panelPrefab;
         [SerializeField] private Canvas _canvas;
         [SerializeField] private float _panelThickness;
+
+
         private int _missionCount = 0;
         private void OnEnable()
         {
@@ -24,13 +26,15 @@ namespace EclipticTwo.Gui
         private void GainMission(IMission mission)
         {
             GameObject newPanel = Instantiate(_panelPrefab);
+            
             MissionPanel newPanelComponent = newPanel.GetComponent<MissionPanel>();
             RectTransform panelTransform = newPanel.GetComponent<RectTransform>();
             if (panelTransform == null || newPanelComponent == null) return;
             _missionCount++;
 
-            panelTransform.SetParent(_canvas.gameObject.transform);
-            panelTransform.anchoredPosition = new Vector3(0f, -_panelThickness * _missionCount + (_panelThickness), 0f);
+            panelTransform.SetParent(this.gameObject.transform);
+            _panelThickness = panelTransform.rect.height;
+            panelTransform.anchoredPosition = new Vector3(0f, -_panelThickness * _missionCount - _panelThickness, 0f);
 
             newPanelComponent.SetMission(mission);
         }

@@ -87,7 +87,7 @@ namespace EclipticTwo.Missions
         {
             _asteroidsDestroyed++;
             GameObject[] subAsteroids = a.GetSubAsteroids();
-            if (subAsteroids != null && subAsteroids.Length == 2)
+            if (subAsteroids[0] != null && subAsteroids.Length == 2)
             {
                 Asteroid ast1 = subAsteroids[0].GetComponent<Asteroid>();
                 Asteroid ast2 = subAsteroids[1].GetComponent<Asteroid>();

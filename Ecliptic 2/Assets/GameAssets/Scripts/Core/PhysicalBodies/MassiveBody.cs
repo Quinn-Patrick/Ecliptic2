@@ -17,7 +17,10 @@ namespace EclipticTwo.Core
         }
         private void Start()
         {
-            Game.planets.Add(this);
+            if (!Game.planets.Contains(this))
+            {
+                Game.planets.Add(this);
+            }
         }
         private void OnDestroy()
         {
