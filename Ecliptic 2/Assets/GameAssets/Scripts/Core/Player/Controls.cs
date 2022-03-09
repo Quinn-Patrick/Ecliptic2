@@ -80,6 +80,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Screenshot"",
+                    ""type"": ""Button"",
+                    ""id"": ""9e263c49-22b4-4d45-8ea1-7f8292063050"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +201,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c7771a2e-22ac-4382-9977-2c778fe8dff6"",
+                    ""path"": ""<Keyboard>/f12"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Screenshot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +226,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Gameplay_ZoomOut = m_Gameplay.FindAction("ZoomOut", throwIfNotFound: true);
         m_Gameplay_Retry = m_Gameplay.FindAction("Retry", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+        m_Gameplay_Screenshot = m_Gameplay.FindAction("Screenshot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,6 +292,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_ZoomOut;
     private readonly InputAction m_Gameplay_Retry;
     private readonly InputAction m_Gameplay_Pause;
+    private readonly InputAction m_Gameplay_Screenshot;
     public struct GameplayActions
     {
         private @Controls m_Wrapper;
@@ -281,6 +303,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @ZoomOut => m_Wrapper.m_Gameplay_ZoomOut;
         public InputAction @Retry => m_Wrapper.m_Gameplay_Retry;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
+        public InputAction @Screenshot => m_Wrapper.m_Gameplay_Screenshot;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,6 +331,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Screenshot.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScreenshot;
+                @Screenshot.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScreenshot;
+                @Screenshot.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScreenshot;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -330,6 +356,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Screenshot.started += instance.OnScreenshot;
+                @Screenshot.performed += instance.OnScreenshot;
+                @Screenshot.canceled += instance.OnScreenshot;
             }
         }
     }
@@ -342,5 +371,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnZoomOut(InputAction.CallbackContext context);
         void OnRetry(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnScreenshot(InputAction.CallbackContext context);
     }
 }

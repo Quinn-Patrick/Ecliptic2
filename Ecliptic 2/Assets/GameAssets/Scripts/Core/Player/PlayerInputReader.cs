@@ -39,10 +39,13 @@ namespace EclipticTwo.Core
         {
             return _controller.GetRetry();
         }
-
         public bool GetPause()
         {
             return _controller.GetPause();
+        }
+        public bool GetScreenshot()
+        {
+            return _controller.GetScreenshot();
         }
     }
 }

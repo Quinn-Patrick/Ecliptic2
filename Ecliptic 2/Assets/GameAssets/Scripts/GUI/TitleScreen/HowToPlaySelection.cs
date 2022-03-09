@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EclipticTwo.Core;
+using UnityEngine.SceneManagement;
 
 namespace EclipticTwo.Title
 {
@@ -15,7 +17,7 @@ namespace EclipticTwo.Title
         }
         public void Selected()
         {
-            throw new System.NotImplementedException();
+            SceneManager.LoadScene(Loader.Scene.HowToPlay1.ToString());
         }
 
         public Transform GetTransform()
