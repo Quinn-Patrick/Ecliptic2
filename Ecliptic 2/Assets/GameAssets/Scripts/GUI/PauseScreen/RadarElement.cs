@@ -38,5 +38,10 @@ namespace EclipticTwo.Gui
         {
             _object = obj;
         }
+
+        public void SetSize(float size)
+        {
+            _transform.sizeDelta = new Vector2(size, size);
+        }
     }
 }

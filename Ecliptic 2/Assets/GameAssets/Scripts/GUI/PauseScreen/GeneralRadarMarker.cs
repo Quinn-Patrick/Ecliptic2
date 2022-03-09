@@ -9,6 +9,7 @@ namespace EclipticTwo.Gui
     {
         [SerializeField] private GameObject _baseObject;
         [SerializeField] private Sprite _sprite;
+        [SerializeField] private float _size;
         private GameObject _tract;
 
         private void OnEnable()
@@ -22,6 +23,7 @@ namespace EclipticTwo.Gui
             if (renderer == null || element == null) return;
             renderer.sprite = _sprite;
             element.SetObject(transform);
+            element.SetSize(_size);
         }
     }
 }

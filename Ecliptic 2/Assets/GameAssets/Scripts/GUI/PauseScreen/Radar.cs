@@ -13,7 +13,7 @@ namespace EclipticTwo.Gui
         {
             if(Scale == 0)
             {
-                Scale = 4f;
+                Scale = 7f;
             }
         }
     }

@@ -220,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseObject: {fileID: 4986131388114978638, guid: d1959cfd1163f4442af2b70507083f96, type: 3}
   _sprite: {fileID: 21300000, guid: 0e954f3acf26463428ad632e8557ad44, type: 3}
+  _size: 35
 --- !u!1 &3236357597404187673
 GameObject:
   m_ObjectHideFlags: 0

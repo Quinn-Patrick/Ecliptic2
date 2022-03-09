@@ -15,7 +15,10 @@ namespace EclipticTwo.Gui
             _map = _radar.GetComponent<RectTransform>();
             if (_transform == null || _map == null || _radar == null) return;
             _transform.SetParent(_map);
-            _transform.sizeDelta = new Vector2(25f, 25f);
+            /*GameObject radarChildObject = GameObject.FindWithTag("GeneralRadarDots");
+            RectTransform parent = radarChildObject.GetComponent<RectTransform>();
+            if (parent == null) return;
+            _transform.SetParent(parent);*/
         }
     }
 }

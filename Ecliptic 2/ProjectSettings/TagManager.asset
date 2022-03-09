@@ -11,6 +11,7 @@ TagManager:
   - Boss1
   - MapBackground
   - NoRadar
+  - GeneralRadarDots
   layers:
   - Default
   - TransparentFX
