@@ -13,6 +13,7 @@ namespace EclipticTwo.Core
         private bool _zoom;
         private bool _retry;
         private bool _pause;
+        private bool _screenshot;
 
         private void Awake()
         {
@@ -24,6 +25,7 @@ namespace EclipticTwo.Core
             _gameplayControls.Gameplay.ZoomOut.performed += ctx => _zoom = true;
             _gameplayControls.Gameplay.Retry.performed += ctx => _retry = true;
             _gameplayControls.Gameplay.Pause.performed += ctx => _pause = true;
+            _gameplayControls.Gameplay.Screenshot.performed += ctx => _screenshot = true;
 
             _gameplayControls.Gameplay.UpDown.canceled += ctx => _thrust = 0f;
             _gameplayControls.Gameplay.LeftRight.canceled += ctx => _rotate = 0f;
@@ -31,6 +33,7 @@ namespace EclipticTwo.Core
             _gameplayControls.Gameplay.ZoomOut.canceled += ctx => _zoom = false;
             _gameplayControls.Gameplay.Retry.canceled += ctx => _retry = false;
             _gameplayControls.Gameplay.Pause.canceled += ctx => _pause = false;
+            _gameplayControls.Gameplay.Screenshot.canceled += ctx => _screenshot = false;
         }
 
         private void OnEnable()
@@ -64,6 +67,10 @@ namespace EclipticTwo.Core
         public bool GetPause()
         {
             return _pause;
+        }
+        public bool GetScreenshot()
+        {
+            return _screenshot;
         }
     }
 }
