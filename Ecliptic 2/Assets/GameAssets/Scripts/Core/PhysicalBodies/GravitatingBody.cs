@@ -20,7 +20,10 @@ namespace EclipticTwo.Core
         }
         protected void Start()
         {
-            Game.gravitators.Add(this);
+            if (!Game.gravitators.Contains(this))
+            {
+                Game.gravitators.Add(this);
+            }
         }
 
         public Fuel GetFuelSystem()

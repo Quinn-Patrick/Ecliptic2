@@ -10,8 +10,10 @@ namespace EclipticTwo.Gui
         private List<IPauseScreenElement> _elements = new List<IPauseScreenElement>();
         [SerializeField] private IInputReader _input;
         private bool _canPause;
-        private bool _paused;
+        private bool _paused = true;
         private float _baseTimeScale;
+
+        private bool _started = false;
         private void Awake()
         {
             _baseTimeScale = Time.timeScale;
@@ -22,13 +24,14 @@ namespace EclipticTwo.Gui
                 if (newElement == null) continue;
                 _elements.Add(newElement);
             }
-            foreach(IPauseScreenElement e in _elements)
-            {
-                e.Hide();
-            }
         }
         private void Update()
         {
+            if (!_started)
+            {
+                PauseUnpause();
+                _started = true;
+            }
             if (_input == null) return;
             if (_input.GetPause())
             {

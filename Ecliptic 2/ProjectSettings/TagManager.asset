@@ -9,6 +9,8 @@ TagManager:
   - CargoMission1
   - OrbitMission1
   - Boss1
+  - MapBackground
+  - NoRadar
   layers:
   - Default
   - TransparentFX

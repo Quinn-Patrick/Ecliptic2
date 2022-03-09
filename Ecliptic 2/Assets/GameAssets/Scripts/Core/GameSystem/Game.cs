@@ -33,7 +33,10 @@ namespace EclipticTwo.Core
         {
             foreach (GravitatingBody g in gravitators)
             {
-                AccelerateGravitator(g);
+                if (g.gameObject.activeSelf)
+                {
+                    AccelerateGravitator(g);
+                }
             }
         }
 

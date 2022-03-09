@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1991374236475400223}
   - component: {fileID: 5973201163982837893}
   - component: {fileID: 563339922425735670}
+  - component: {fileID: 7964444201236116622}
   m_Layer: 6
   m_Name: CargoStation
   m_TagString: Untagged
@@ -205,6 +206,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cargo: []
   _progressIndicator: {fileID: 2038862181199058681}
+--- !u!114 &7964444201236116622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934614822563549040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e89a13df385bb0459db0f64e0c1cae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseObject: {fileID: 4986131388114978638, guid: d1959cfd1163f4442af2b70507083f96, type: 3}
+  _sprite: {fileID: 21300000, guid: 0e954f3acf26463428ad632e8557ad44, type: 3}
 --- !u!1 &3236357597404187673
 GameObject:
   m_ObjectHideFlags: 0

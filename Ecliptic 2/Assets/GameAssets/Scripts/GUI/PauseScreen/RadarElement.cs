@@ -14,6 +14,7 @@ namespace EclipticTwo.Gui
         protected void Awake()
         {
             _transform = GetComponent<RectTransform>();
+            if (_transform == null) return;
         }
 
         protected void Update()
@@ -24,7 +25,14 @@ namespace EclipticTwo.Gui
                 Destroy(this);
                 return;
             }
-            _transform.anchoredPosition = new Vector3((_object.position.x + _radar.Center.x) * _radar.Scale, (_object.position.y + _radar.Center.y) * _radar.Scale, 0f);
+            if (_object.gameObject.activeSelf && _object != null && _radar != null)
+            {
+                _transform.anchoredPosition = new Vector3((_object.position.x + _radar.Center.x) * _radar.Scale, (_object.position.y + _radar.Center.y) * _radar.Scale, 0f);
+            }
+            else
+            {
+                _transform.anchoredPosition = new Vector3(-999999, -999999, 0);
+            }
         }
         public void SetObject(Transform obj)
         {
