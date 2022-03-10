@@ -37,6 +37,8 @@ namespace EclipticTwo.Core
             float damage = Mathf.Pow((relativeSpeed - _minimumCrashSpeed), 2) * _crashDamageMultiplier;
             _currentHealth -= damage;
 
+            Metrics.Instance.TotalDamage += damage;
+
             Damaged?.Invoke(damage);
             
             
@@ -75,6 +77,13 @@ namespace EclipticTwo.Core
         {
             if (_currentHealth > _maxHealth) _currentHealth = _maxHealth;
             if (_currentHealth < 0) _currentHealth = 0;
+        }
+
+        public void InflictFixedDamage(int damage)
+        {
+            _currentHealth -= damage;
+            Damaged?.Invoke(damage);
+            EnsureHealth();
         }
     }
 }

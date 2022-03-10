@@ -62,6 +62,7 @@ namespace EclipticTwo.Missions
 
         public void CompleteMission()
         {
+            Metrics.Instance.MissionsCompleted++;
             _isComplete = true;
             foreach (MassiveBody b in _bossList)
             {

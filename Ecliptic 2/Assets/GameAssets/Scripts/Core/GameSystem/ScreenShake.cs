@@ -7,6 +7,7 @@ public class ScreenShake : MonoBehaviour
     [SerializeField] private float _shakeDecay;
     private float _shakeAmount;
     public static ScreenShake Instance;
+    private float _maxShake = 1f;
 
     private void Awake()
     {
@@ -33,5 +34,6 @@ public class ScreenShake : MonoBehaviour
     public void AddShake(float deltaShake)
     {
         _shakeAmount += deltaShake;
+        if (_shakeAmount > _maxShake) _shakeAmount = _maxShake;
     }
 }

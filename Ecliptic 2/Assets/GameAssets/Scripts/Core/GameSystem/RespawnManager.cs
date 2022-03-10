@@ -49,12 +49,14 @@ namespace EclipticTwo.Respawn
             {
                 if (_canRespawn)
                 {
-                    _canRespawn = false;
                     Respawn();
-                    return;
                 }
+                _canRespawn = false;
             }
-            _canRespawn = true;
+            else
+            {
+                _canRespawn = true;
+            }
             
         }
         private void KillPlayer()
@@ -68,6 +70,7 @@ namespace EclipticTwo.Respawn
         }
         private void Respawn()
         {
+            Metrics.Instance.Crashes++;
             Score.Instance.ResetChain();
             _player.gameObject.SetActive(true);
             _respawnTimer = 0f;

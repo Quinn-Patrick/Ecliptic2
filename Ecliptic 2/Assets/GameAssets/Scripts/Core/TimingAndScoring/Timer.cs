@@ -11,10 +11,12 @@ namespace EclipticTwo.TimingAndScoring
         private float _elapsedTime;
         private float _levelTime;
         public static Timer Instance;
+        private bool _timeOver = false;
         private void Awake()
         {
             if(Instance == null)
             {
+                StartTime();
                 Instance = this;
                 DontDestroyOnLoad(this);
             }
@@ -27,6 +29,7 @@ namespace EclipticTwo.TimingAndScoring
 
         private void Update()
         {
+            if (_timeOver) return;
             _elapsedTime += Time.deltaTime;
         }
         public float GetElapsedTime()
@@ -50,6 +53,15 @@ namespace EclipticTwo.TimingAndScoring
         private void OnNewLevel()
         {
             _levelTime = _elapsedTime;
+        }
+        public void EndTime()
+        {
+            _timeOver = true;
+        }
+        public void StartTime()
+        {
+            _timeOver = false;
+            _elapsedTime = 0f;
         }
     }
 }

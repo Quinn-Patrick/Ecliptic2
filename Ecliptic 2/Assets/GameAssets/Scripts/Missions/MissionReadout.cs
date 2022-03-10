@@ -30,13 +30,14 @@ namespace EclipticTwo.Gui
             MissionPanel newPanelComponent = newPanel.GetComponent<MissionPanel>();
             RectTransform panelTransform = newPanel.GetComponent<RectTransform>();
             if (panelTransform == null || newPanelComponent == null) return;
-            _missionCount++;
+            
 
-            panelTransform.SetParent(this.gameObject.transform);
-            _panelThickness = panelTransform.rect.height;
-            panelTransform.anchoredPosition = new Vector3(0f, -_panelThickness * _missionCount - _panelThickness, 0f);
+            panelTransform.SetParent(gameObject.transform);
+            _panelThickness = panelTransform.rect.height * (1 / panelTransform.localScale.y);
+            panelTransform.anchoredPosition = new Vector3(0f, (-_panelThickness * _missionCount), 0f);
 
             newPanelComponent.SetMission(mission);
+            _missionCount++;
         }
     }
 }

@@ -58,6 +58,7 @@ namespace EclipticTwo.Missions
 
         public void CompleteMission()
         {
+            Metrics.Instance.MissionsCompleted++;
             _isComplete = true;
             foreach (CargoStation station in _stations)
             {

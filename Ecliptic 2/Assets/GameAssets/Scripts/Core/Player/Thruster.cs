@@ -32,12 +32,18 @@ namespace EclipticTwo.Core
             if (_fuel == null) return;
             if (_fuel.GetFuelLevel() < float.Epsilon) return;
             _eulerAngles = gameObject.transform.eulerAngles;
+
+            float thrust = _input.GetThrust();
+            if (thrust < 0) thrust = 0;
+
             if (_input == null || _entity == null || !_canThrust) return;
-            float xThrust = _input.GetThrust() * Mathf.Cos(Mathf.Deg2Rad * _eulerAngles.z);
-            float yThrust = _input.GetThrust() * Mathf.Sin(Mathf.Deg2Rad * _eulerAngles.z);
+            float xThrust = thrust * Mathf.Cos(Mathf.Deg2Rad * _eulerAngles.z);
+            float yThrust = thrust * Mathf.Sin(Mathf.Deg2Rad * _eulerAngles.z);
+
+            Vector3 thrustVector = new Vector3(xThrust, yThrust, 0f);
+            _entity.UpdateAcceleration(_power * Time.fixedDeltaTime * thrustVector);
+
             _fuel.DepleteFuel(math.abs(_input.GetThrust()));
-            Vector3 thrust = new Vector3(xThrust, yThrust, 0f);
-            _entity.UpdateAcceleration(_power * Time.fixedDeltaTime * thrust);
         }
         private void ProjectExhaust()
         {

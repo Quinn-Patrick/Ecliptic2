@@ -63,5 +63,10 @@ namespace EclipticTwo.TimingAndScoring
         {
             return $"{_chainBonus:0.0}";
         }
+        public void ResetScore()
+        {
+            _score = 0;
+            ResetChain();
+        }
     }
 }

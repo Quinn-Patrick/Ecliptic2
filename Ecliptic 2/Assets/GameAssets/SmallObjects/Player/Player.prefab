@@ -5367,6 +5367,7 @@ MonoBehaviour:
   _fuelSystem: {fileID: 7266082749915547778}
   _thrustSystem: {fileID: 329039091732094542}
   _rotationSystem: {fileID: 4912718799767732561}
+  _healthSystem: {fileID: 8784832719553091269}
 --- !u!114 &1637242737978033180
 MonoBehaviour:
   m_ObjectHideFlags: 0
