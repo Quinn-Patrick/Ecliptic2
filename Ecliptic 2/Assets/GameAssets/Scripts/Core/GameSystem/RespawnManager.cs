@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EclipticTwo.Core;
 using EclipticTwo.Cargo;
+using EclipticTwo.TimingAndScoring;
 
 namespace EclipticTwo.Respawn
 {
@@ -67,6 +68,7 @@ namespace EclipticTwo.Respawn
         }
         private void Respawn()
         {
+            Score.Instance.ResetChain();
             _player.gameObject.SetActive(true);
             _respawnTimer = 0f;
             _isDead = false;

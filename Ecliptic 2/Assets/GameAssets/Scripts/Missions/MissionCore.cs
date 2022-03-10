@@ -13,6 +13,7 @@ namespace EclipticTwo.Missions
         public event MissionGainHandler MissionGained;
         private void Awake()
         {
+            Loader.LevelLoaded += ClearMissionList;
             if (Instance == null)
             {
                 Instance = this;
@@ -47,6 +48,14 @@ namespace EclipticTwo.Missions
                 }
             }
             return allClear;
+        }
+        public void ClearMissionList()
+        {
+            Missions.Clear();
+        }
+        private void OnDestroy()
+        {
+            Loader.LevelLoaded -= ClearMissionList;
         }
     }
 }
