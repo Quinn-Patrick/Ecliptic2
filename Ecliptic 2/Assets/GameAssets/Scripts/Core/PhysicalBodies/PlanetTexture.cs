@@ -11,7 +11,7 @@ namespace EclipticTwo.Core
 
         private void Start()
         {
-            _self.size = new Vector2(_planetSurface.localScale.x, _planetSurface.localScale.y);
+            _self.transform.localScale = new Vector2(_planetSurface.localScale.x, _planetSurface.localScale.y);
             _planetSurface.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
