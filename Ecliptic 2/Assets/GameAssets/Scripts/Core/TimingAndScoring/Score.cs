@@ -8,6 +8,7 @@ namespace EclipticTwo.TimingAndScoring
     {
         private int _score;
         public static Score Instance;
+        private float _chainBonus = 1.0f;
         private void Awake()
         {
             if (Instance == null)
@@ -20,17 +21,19 @@ namespace EclipticTwo.TimingAndScoring
                 Destroy(this);
             }
         }
-            public void GainScoreTimeBonus(int baseScore, int baseTimeBonus, float baseTime)
+        public void GainScoreTimeBonus(int baseScore, int baseTimeBonus, float baseTime)
         {
             float completionTime = baseTime / Timer.Instance.GetLevelTime();
 
             float timeBonus = baseTimeBonus * completionTime;
 
-            float floatScore = baseScore + timeBonus;
+            float floatScore = (baseScore + timeBonus) * _chainBonus;
 
             int score = (int)floatScore;
 
             GainScore(score);
+
+            IncrementChain();
         }
 
         public void GainScore(int score)
@@ -46,6 +49,19 @@ namespace EclipticTwo.TimingAndScoring
         public string GetFormattedScore()
         {
             return $"{_score:000000000}";
+        }
+
+        public void IncrementChain()
+        {
+            _chainBonus += 0.1f;
+        }
+        public void ResetChain()
+        {
+            _chainBonus = 1.0f;
+        }
+        public string GetFormattedBonus()
+        {
+            return $"{_chainBonus:0.0}";
         }
     }
 }

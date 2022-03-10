@@ -6,8 +6,8 @@ namespace EclipticTwo.Gui
 {
     public class Radar : MonoBehaviour
     {
-       [SerializeField] public float Scale { get; set; }
-       [SerializeField] public Vector2 Center { get; set; }
+       public float Scale { get; set; }
+       public Vector2 Center { get; set; }
 
         private void Start()
         {

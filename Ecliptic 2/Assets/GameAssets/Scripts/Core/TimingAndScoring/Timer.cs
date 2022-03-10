@@ -38,7 +38,7 @@ namespace EclipticTwo.TimingAndScoring
             int seconds = (int)_elapsedTime;
 
             int minutes = seconds / 60;
-            seconds = seconds % 60;
+            seconds %= 60;
 
             return $"{minutes:00} : {seconds:00}";
         }
