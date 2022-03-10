@@ -10,7 +10,11 @@ namespace EclipticTwo.Gui
         [SerializeField] private Vector2 _fullFuelPosition;
         [SerializeField] private Vector2 _emptyFuelPosition;
         [SerializeField] private Fuel _fuelTank;
-
+        [SerializeField] private FuelDepletedIndicator _text;
+        private void Start()
+        {
+            _text.SetFuelObject(_fuelTank);
+        }
         private void Update()
         {
             if (_fuelTank == null || _fullFuelPosition == null || _emptyFuelPosition == null) return;

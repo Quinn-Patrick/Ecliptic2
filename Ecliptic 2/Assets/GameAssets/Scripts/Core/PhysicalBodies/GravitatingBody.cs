@@ -11,6 +11,7 @@ namespace EclipticTwo.Core
         [SerializeField] protected Fuel _fuelSystem;
         [SerializeField] protected Thruster _thrustSystem;
         [SerializeField] protected Rotator _rotationSystem;
+        [SerializeField] protected HealthSystem _healthSystem;
         private new void Awake()
         {
             base.Awake();
@@ -37,6 +38,10 @@ namespace EclipticTwo.Core
         public Rotator GetRotationSystem()
         {
             return _rotationSystem;
+        }
+        public HealthSystem GetHealthSystem()
+        {
+            return _healthSystem;
         }
 
         private void OnDestroy()

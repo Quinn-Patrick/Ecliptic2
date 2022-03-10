@@ -20,7 +20,8 @@ namespace EclipticTwo.Core
             level6,
             HowToPlay1,
             HowToPlay2,
-            HowToPlay3
+            HowToPlay3,
+            End
         }
         private static Action _onLoaderCallback;
 

@@ -6,6 +6,15 @@ namespace EclipticTwo.Core
 {
     public class Player : GravitatingBody
     {
+        new private void FixedUpdate()
+        {
+            base.FixedUpdate();
+            if(_body.velocity.magnitude > Metrics.Instance.TopSpeed)
+            {
+                Metrics.Instance.TopSpeed = _body.velocity.magnitude;
+            }
+            Metrics.Instance.DistanceTraveled += _body.velocity.magnitude * Time.fixedDeltaTime;
+        }
         private void OnTriggerEnter2D(Collider2D other)
         {
             ITriggerObject trigger = other.gameObject.GetComponent<ITriggerObject>();

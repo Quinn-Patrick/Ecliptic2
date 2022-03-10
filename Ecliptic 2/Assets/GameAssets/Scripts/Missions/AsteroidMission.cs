@@ -65,6 +65,7 @@ namespace EclipticTwo.Missions
         public void CompleteMission()
         {
             _isComplete = true;
+            Metrics.Instance.MissionsCompleted++;
             foreach (Asteroid a in _asteroidList)
             {
                 a.Destroyed -= (a) => DestroyAsteroid(a);

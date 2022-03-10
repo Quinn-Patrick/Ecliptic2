@@ -25,7 +25,9 @@ namespace EclipticTwo.Core
 
         public void DepleteFuel(float drain)
         {
-            _currentFuel -= drain * Time.fixedDeltaTime / _fuelEfficiency;
+            float drainAmount = drain * Time.fixedDeltaTime / _fuelEfficiency;
+            _currentFuel -= drainAmount;
+            Metrics.Instance.FuelUsed += drainAmount;
             EnsureFuel();
         }
         public void PumpFuel(float flow)

@@ -61,6 +61,7 @@ namespace EclipticTwo.Missions
 
         public void CompleteMission()
         {
+            Metrics.Instance.MissionsCompleted++;
             _isComplete = true;
             _player.Impacted -= ResetMission;
             foreach (GoalRing ring in _rings)
