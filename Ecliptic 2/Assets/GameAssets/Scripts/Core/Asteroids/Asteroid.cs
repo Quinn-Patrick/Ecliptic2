@@ -90,14 +90,14 @@ namespace EclipticTwo.Asteroids
             _subAsteroids[0].SetActive(true);
             Rigidbody2D _subAstBody = _subAsteroids[0].GetComponent<Rigidbody2D>();
             _subAstBody.velocity = _body.velocity;
-            //ApplyPerpendicularForce(_subAstBody, 1);
+            ApplyPerpendicularForce(_subAstBody, 1);
 
             if (_subAsteroids[1] == null) return;
             _subAsteroids[1].transform.position = _transform.position - new Vector3(_radius / 2, _radius / 2, 0);
             _subAsteroids[1].SetActive(true);
             _subAstBody = _subAsteroids[1].GetComponent<Rigidbody2D>();
             _subAstBody.velocity = _body.velocity;
-            //ApplyPerpendicularForce(_subAstBody, -1);
+            ApplyPerpendicularForce(_subAstBody, -1);
         }
 
         private void ApplyPerpendicularForce(Rigidbody2D asteroid, float multiplier)
