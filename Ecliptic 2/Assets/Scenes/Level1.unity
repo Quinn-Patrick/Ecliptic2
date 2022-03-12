@@ -544,6 +544,18 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: -0.0010000169
       objectReference: {fileID: 0}
+    - target: {fileID: 5584541751146090220, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584541751146090220, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584541751146090220, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4855329074109701483, guid: 2cbc4818f195ce6438e5ec957ab5a3c6, type: 2}
     - target: {fileID: 6153521040208999921, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
       propertyPath: m_RootOrder
       value: 10
