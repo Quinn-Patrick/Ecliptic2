@@ -15,6 +15,9 @@ namespace EclipticTwo.Boss
         public delegate void HitHandler();
         public event HitHandler GotHit;
 
+        public delegate void StateChangeHandler();
+        public event StateChangeHandler StateChanged;
+
         public delegate void DeathHandler(BossBody boss);
         public event DeathHandler Dead;
 
@@ -39,7 +42,12 @@ namespace EclipticTwo.Boss
 
         private void FixedUpdate()
         {
+            IBossState _lastState = _state;
             _state = _state.UpdateState();
+            if(_state != _lastState)
+            {
+                StateChanged.Invoke();
+            }
 
             if (_health <= 0)
             {

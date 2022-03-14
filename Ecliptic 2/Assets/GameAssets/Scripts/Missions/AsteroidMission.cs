@@ -7,32 +7,16 @@ using EclipticTwo.Asteroids;
 
 namespace EclipticTwo.Missions
 {
-    public class AsteroidMission : MonoBehaviour, IMission
+    public class AsteroidMission : Mission
     {
-        private MissionType _type = MissionType.Asteroids;
+        [SerializeField] protected AsteroidMissionData _data;
         private List<Asteroid> _asteroidList = new List<Asteroid>();
         private int _asteroidsDestroyed = 0;
         private int _totalAsteroids = 0;
-        private string _name;
-        private string _description;
-        private bool _isRequired;
-        private bool _isComplete;
-
-        private int _baseScore;
-        private int _baseTimeBonus;
-        private float _bonusTime;
-
-        [SerializeField] private AsteroidMissionData _data;
-        private void Start()
+        new private void Start()
         {
-            AcquireMission();
-            _name = _data.missionName;
-            _description = _data.description;
-            _isRequired = _data.isRequired;
-
-            _baseScore = _data.baseScore;
-            _baseTimeBonus = _data.baseTimeBonus;
-            _bonusTime = _data.bonusTime;
+            base.Start();
+            InitializeData();
             foreach (GameObject a in GameObject.FindGameObjectsWithTag(_data.asteroidID))
             {
                 Asteroid asteroid = a.GetComponent<Asteroid>();
@@ -56,32 +40,18 @@ namespace EclipticTwo.Missions
                 }
             }
         }
-
-        public void AcquireMission()
+        new public void CompleteMission()
         {
-            MissionCore.Instance.GainMission(this);
-        }
-
-        public void CompleteMission()
-        {
-            _isComplete = true;
-            Metrics.Instance.MissionsCompleted++;
+            base.CompleteMission();
             foreach (Asteroid a in _asteroidList)
             {
                 a.Destroyed -= (a) => DestroyAsteroid(a);
             }
-            Score.Instance.GainScoreTimeBonus(_baseScore, _baseTimeBonus, _bonusTime);
         }
-
-        public string GetMissionProgress()
+        override public string GetMissionProgress()
         {
             if (_isComplete) return $"{_name}: Complete!";
             return $"{_name}: {_totalAsteroids - _asteroidsDestroyed} Remaining";
-        }
-
-        public MissionType GetMissionType()
-        {
-            return _type;
         }
 
         private void DestroyAsteroid(Asteroid a)
@@ -109,25 +79,15 @@ namespace EclipticTwo.Missions
             _asteroidList.Remove(a);
             a.Destroyed -= (a) => DestroyAsteroid(a);
         }
-
-        public string GetMissionName()
+        private void InitializeData()
         {
-            return _name;
-        }
+            _name = _data.missionName;
+            _description = _data.description;
+            _isRequired = _data.isRequired;
 
-        public string GetMissionDescription()
-        {
-            return _description;
+            _baseScore = _data.baseScore;
+            _baseTimeBonus = _data.baseTimeBonus;
+            _bonusTime = _data.bonusTime;
         }
-
-        public bool IsRequired()
-        {
-            return _isRequired;
-        }
-        public bool IsComplete()
-        {
-            return _isComplete;
-        }
-
     }
 }

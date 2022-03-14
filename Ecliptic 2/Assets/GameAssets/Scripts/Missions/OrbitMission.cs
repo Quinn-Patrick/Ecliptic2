@@ -7,26 +7,16 @@ using EclipticTwo.Rings;
 
 namespace EclipticTwo.Missions
 {
-    public class OrbitMission : MonoBehaviour, IMission
+    public class OrbitMission : Mission
     {
         [SerializeField] private OrbitMissionData _data;
         [SerializeField] private Player _player;
-
-        private string _name;
-        private string _description;
-        private bool _isRequired;
         private int _ringsTarget;
         private int _ringsCleared;
-        private bool _isComplete;
-        private MissionType _type = MissionType.Orbit;
         private List<GoalRing> _rings = new List<GoalRing>();
-
-        private int _baseScore;
-        private int _baseTimeBonus;
-        private float _bonusTime;
-        private void Start()
+        new private void Start()
         {
-            AcquireMission();
+            base.Start();
             _name = _data.missionName;
             _description = _data.description;
             _isRequired = _data.isRequired;
@@ -44,10 +34,6 @@ namespace EclipticTwo.Missions
             _ringsTarget = _rings.Count;
             _player.Impacted += ResetMission;
         }
-        public void AcquireMission()
-        {
-            MissionCore.Instance.GainMission(this);
-        }
         private void Update()
         {
             if (!_isComplete)
@@ -59,48 +45,21 @@ namespace EclipticTwo.Missions
             }
         }
 
-        public void CompleteMission()
+        new public void CompleteMission()
         {
-            Metrics.Instance.MissionsCompleted++;
-            _isComplete = true;
+            base.CompleteMission();
             _player.Impacted -= ResetMission;
             foreach (GoalRing ring in _rings)
             {
                 ring.gameObject.SetActive(false);
                 ring.Cleared -= ClearRing;
             }
-            Score.Instance.GainScoreTimeBonus(_baseScore, _baseTimeBonus, _bonusTime);
         }
 
-        public string GetMissionDescription()
-        {
-            return _description;
-        }
-
-        public string GetMissionName()
-        {
-            return _name;
-        }
-
-        public string GetMissionProgress()
+        override public string GetMissionProgress()
         {
             if (_isComplete) return $"{_name}: Complete!";
             return $"{_name}: {_ringsCleared} / {_ringsTarget}";
-        }
-
-        public MissionType GetMissionType()
-        {
-            return _type;
-        }
-
-        public bool IsComplete()
-        {
-            return _isComplete;
-        }
-
-        public bool IsRequired()
-        {
-            return _isRequired;
         }
 
         private void ClearRing(GoalRing ring)

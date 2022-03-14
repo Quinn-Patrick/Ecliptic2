@@ -31,7 +31,7 @@ namespace EclipticTwo.Core
         private void FixedUpdate()
         {
             _time += Time.fixedDeltaTime;
-            if (_time <= _damageFrequency)
+            if (_time >= _damageFrequency)
             {
                 foreach (HealthSystem h in _targetedSystems)
                 {

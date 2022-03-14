@@ -7,24 +7,15 @@ using EclipticTwo.Cargo;
 
 namespace EclipticTwo.Missions
 {
-    public class CargoMission : MonoBehaviour, IMission
+    public class CargoMission : Mission
     {
         [SerializeField] private CargoMissionData _data;
-        private string _name;
-        private string _description;
-        private bool _isRequired;
         private readonly List<CargoStation> _stations = new List<CargoStation>();
         private int _stationsComplete;
         private int _targetStations;
-        private readonly MissionType _type = MissionType.Cargo;
-        private bool _isComplete = false;
-
-        private int _baseScore;
-        private int _baseTimeBonus;
-        private float _bonusTime;
-        private void Start()
+        new private void Start()
         {
-            AcquireMission();
+            base.Start();
             _name = _data.missionName;
             _description = _data.description;
             _isRequired = _data.isRequired;
@@ -51,56 +42,25 @@ namespace EclipticTwo.Missions
                 }
             }
         }
-        public void AcquireMission()
-        {
-            MissionCore.Instance.GainMission(this);
-        }
 
-        public void CompleteMission()
+        new public void CompleteMission()
         {
-            Metrics.Instance.MissionsCompleted++;
-            _isComplete = true;
+            base.CompleteMission();
             foreach (CargoStation station in _stations)
             {
                 station.Complete -= CompleteStation;
             }
-            Score.Instance.GainScoreTimeBonus(_baseScore, _baseTimeBonus, _bonusTime);
         }
 
-        public string GetMissionDescription()
-        {
-            return _description;
-        }
-
-        public string GetMissionName()
-        {
-            return _name;
-        }
-
-        public string GetMissionProgress()
+        override public string GetMissionProgress()
         {
             if (_isComplete) return $"{_name}: Complete!";
             return $"{_name}: {_stationsComplete} / {_targetStations}";
         }
 
-        public MissionType GetMissionType()
-        {
-            return _type;
-        }
-
-        public bool IsRequired()
-        {
-            return _isRequired;
-        }
-
         private void CompleteStation(CargoStation cs)
         {
             _stationsComplete++;
-        }
-
-        public bool IsComplete()
-        {
-            return _isComplete;
         }
     }
 }

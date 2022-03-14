@@ -26,7 +26,7 @@ namespace EclipticTwo.Audio
         {
             _source.PlayOneShot(_clip, 1f);
         }
-        private float ComputeVolume()
+        protected float ComputeVolume()
         {
             if (_listener == null) return 1f;
             float distance = Vector3.Distance(_source.transform.position, _listener.transform.position - new Vector3(0, 0, -14)) / 4;
@@ -36,7 +36,7 @@ namespace EclipticTwo.Audio
             if (effectiveVolume > 1) return 1f;
             else return effectiveVolume;
         }
-        private void FixedUpdate()
+        protected void FixedUpdate()
         {
             transform.position = _pseudoParent.position;
         }
