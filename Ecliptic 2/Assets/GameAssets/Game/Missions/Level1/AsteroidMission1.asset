@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: Destroy Asteroids
   description: Completely destroy the asteroid.
-  isRequired: 1
+  isRequired: 0
   baseScore: 2000
   baseTimeBonus: 2000
   bonusTime: 60

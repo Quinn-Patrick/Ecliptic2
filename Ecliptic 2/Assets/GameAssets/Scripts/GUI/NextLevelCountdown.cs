@@ -13,8 +13,21 @@ namespace EclipticTwo.Missions
         [SerializeField] private TextMeshProUGUI _textField;
         [SerializeField] private Animator _anim;
         private string _fieldName = "CountingDown";
+        public static NextLevelCountdown Instance;
 
-        public static Action CountdownOver;
+        public delegate void CountdownOverHandler();
+        public event CountdownOverHandler CountdownEnded;
+        private void Awake()
+        {
+            if(Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
+        }
         private void OnEnable()
         {
             LevelEndZone._enteredZone += InitiateCountdown;
@@ -47,7 +60,7 @@ namespace EclipticTwo.Missions
         }
         private void EndCountdown()
         {
-            CountdownOver?.Invoke();
+            CountdownEnded?.Invoke();
         }
     }
 }

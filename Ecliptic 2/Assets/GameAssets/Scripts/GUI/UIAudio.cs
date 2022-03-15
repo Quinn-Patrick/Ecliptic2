@@ -10,11 +10,11 @@ namespace EclipticTwo.Audio
         [SerializeField] private AudioClip _levelEndSound;
         private void OnEnable()
         {
-            NextLevelCountdown.CountdownOver += () => PlaySound(_levelEndSound);
+            NextLevelCountdown.Instance.CountdownEnded += () => PlaySound(_levelEndSound);
         }
         private void OnDisable()
         {
-            NextLevelCountdown.CountdownOver -= () => PlaySound(_levelEndSound);
+            NextLevelCountdown.Instance.CountdownEnded -= () => PlaySound(_levelEndSound);
         }
     }
 }

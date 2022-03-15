@@ -15,15 +15,27 @@ namespace EclipticTwo.Audio
         }
         protected void PlaySoundWithDistance(AudioClip _clip)
         {
+            if (_source == null)
+            {
+                _source = GetComponent<AudioSource>();
+            }
             _source.PlayOneShot(_clip, ComputeVolume());
         }
         protected void PlaySoundWithVolume(AudioClip _clip, float volume)
         {
             if (volume > 1) volume = 1;
+            if (_source == null)
+            {
+                _source = GetComponent<AudioSource>();
+            }
             _source.PlayOneShot(_clip, ComputeVolume() * volume);
         }
         protected void PlaySound(AudioClip _clip)
         {
+            if (_source == null)
+            {
+                _source = GetComponent<AudioSource>();
+            }
             _source.PlayOneShot(_clip, 1f);
         }
         protected float ComputeVolume()
@@ -38,6 +50,7 @@ namespace EclipticTwo.Audio
         }
         protected void FixedUpdate()
         {
+            
             transform.position = _pseudoParent.position;
         }
     }

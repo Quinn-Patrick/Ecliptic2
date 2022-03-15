@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: Deliver Cargo
   description: Deliver the cargo to the cargo base.
-  isRequired: 1
+  isRequired: 0
   baseScore: 3000
   baseTimeBonus: 3000
   bonusTime: 90
