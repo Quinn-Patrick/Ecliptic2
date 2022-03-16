@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 212442932478451837}
   - component: {fileID: 7495359605138851736}
   - component: {fileID: 4802274270304629303}
+  - component: {fileID: 3968427487355883495}
   m_Layer: 0
   m_Name: AsteroidAudio
   m_TagString: Untagged
@@ -144,6 +145,22 @@ MonoBehaviour:
   _pseudoParent: {fileID: 2485608140699767587}
   _asteroid: {fileID: 6692545500871105332}
   _getHitSound: {fileID: 8300000, guid: 211bdd21ceca4b944aba46464f4e7e0b, type: 3}
+--- !u!114 &3968427487355883495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170375558937079670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856f47b4ebf444a48823976df01c249b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _source: {fileID: 7495359605138851736}
+  _pseudoParent: {fileID: 2485608140699767587}
+  _clip: {fileID: 8300000, guid: 993ea5394e15fca42aa56f35ba2e9559, type: 3}
+  _entity: {fileID: 6692545500871105332}
 --- !u!1 &1971185953135288192
 GameObject:
   m_ObjectHideFlags: 0

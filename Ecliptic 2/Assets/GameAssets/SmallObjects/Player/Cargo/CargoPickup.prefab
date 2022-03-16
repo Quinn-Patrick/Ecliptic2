@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8780594607181953683}
   - component: {fileID: 3062635256141938370}
   - component: {fileID: 5677225979487125040}
+  - component: {fileID: 8207213634889719747}
   m_Layer: 0
   m_Name: CargoAudio
   m_TagString: Untagged
@@ -144,6 +145,22 @@ MonoBehaviour:
   _pseudoParent: {fileID: 6592290029971361254}
   _clip: {fileID: 8300000, guid: 23b03e2bd68cad241bbfcc08b7cc43f9, type: 3}
   _collectible: {fileID: 6123842926539615319}
+--- !u!114 &8207213634889719747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690064143963467919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856f47b4ebf444a48823976df01c249b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _source: {fileID: 3062635256141938370}
+  _pseudoParent: {fileID: 6592290029971361254}
+  _clip: {fileID: 8300000, guid: 80f99de65a5fb3942893d34b798ad96b, type: 3}
+  _entity: {fileID: 6174322169303726910}
 --- !u!1 &2920792785655960391
 GameObject:
   m_ObjectHideFlags: 0

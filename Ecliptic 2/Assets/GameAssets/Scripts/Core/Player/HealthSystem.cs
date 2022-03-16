@@ -41,8 +41,6 @@ namespace EclipticTwo.Core
             Metrics.Instance.TotalDamage += damage;
 
             Damaged?.Invoke(damage);
-            
-            
             EnsureHealth();
         }
         private void Update()

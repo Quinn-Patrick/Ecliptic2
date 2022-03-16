@@ -5185,6 +5185,7 @@ GameObject:
   - component: {fileID: 5584541751146090220}
   - component: {fileID: 4590279319397996657}
   - component: {fileID: 5780258720728405059}
+  - component: {fileID: 7670925116808968480}
   m_Layer: 3
   m_Name: ShipAudio
   m_TagString: Untagged
@@ -5339,6 +5340,22 @@ MonoBehaviour:
   _fuelTank: {fileID: 7266082749915547778}
   _lowFuelClip: {fileID: 8300000, guid: 99254a7331d22a34cb4866ca5bf8aa17, type: 3}
   _outOfFuelClip: {fileID: 8300000, guid: bc50cf8f7f2e63f439d634106b4d80bc, type: 3}
+--- !u!114 &7670925116808968480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948951068533538983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856f47b4ebf444a48823976df01c249b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _source: {fileID: 5584541751146090220}
+  _pseudoParent: {fileID: 1372814134097883554}
+  _clip: {fileID: 8300000, guid: 80f99de65a5fb3942893d34b798ad96b, type: 3}
+  _entity: {fileID: 2006834026112244975}
 --- !u!1 &6221326871554171119
 GameObject:
   m_ObjectHideFlags: 0
