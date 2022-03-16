@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: Orbit Through Rings
   description: Orbit through the rings without touching the ground.
-  isRequired: 0
+  isRequired: 1
   baseScore: 8000
   baseTimeBonus: 8000
   bonusTime: 90

@@ -50,7 +50,6 @@ namespace EclipticTwo.Audio
         }
         protected void FixedUpdate()
         {
-            
             transform.position = _pseudoParent.position;
         }
     }

@@ -1303,10 +1303,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2432903054656861283, guid: c69eb1f4d20b41941a93bdcf5ded9829, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4ae9ab2d68b16094db6a55d4174d72f9, type: 3}
     - target: {fileID: 4183599986019791809, guid: c69eb1f4d20b41941a93bdcf5ded9829, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1355,6 +1351,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
+    - target: {fileID: 7093289771178154175, guid: c69eb1f4d20b41941a93bdcf5ded9829, type: 3}
+      propertyPath: _clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ae9ab2d68b16094db6a55d4174d72f9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c69eb1f4d20b41941a93bdcf5ded9829, type: 3}
 --- !u!1001 &4369005747070679146

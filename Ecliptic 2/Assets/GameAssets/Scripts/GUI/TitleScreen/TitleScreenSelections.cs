@@ -12,10 +12,12 @@ namespace EclipticTwo.Title
         public List<ISelection> Options = new List<ISelection>();
         private bool _canChangeSelection;
 
+        public delegate void SelectionChangeHandler();
+        public event SelectionChangeHandler SelectionChanged;
+
         private void Awake()
         {
             _input = GetComponent<IInputReader>();
-
         }
 
         private void Start()
@@ -50,6 +52,7 @@ namespace EclipticTwo.Title
             }
             if (_canChangeSelection)
             {
+                SelectionChanged?.Invoke();
                 _selection += (int)Mathf.Sign(_input.GetThrust());
                 _canChangeSelection = false;
                 EnsureSelection();
