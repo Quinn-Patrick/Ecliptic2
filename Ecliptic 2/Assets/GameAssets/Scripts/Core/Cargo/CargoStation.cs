@@ -17,6 +17,9 @@ namespace EclipticTwo.Cargo
         public delegate void CompletionHandler(CargoStation cs);
         public event CompletionHandler Complete;
 
+        public delegate void CargoDepositHandler();
+        public event CargoDepositHandler CargoDeposited;
+
         private void Start()
         {
             _sprite = GetComponent<SpriteRenderer>();
@@ -36,6 +39,7 @@ namespace EclipticTwo.Cargo
             if (grabber == null) return;
             if (_cargo.Contains(grabber.GetCurrentCargo()))
             {
+                CargoDeposited?.Invoke();
                 grabber.UnloadCargo();
                 _cargoCount++;
                 if (_cargoCount >= _cargoTarget)

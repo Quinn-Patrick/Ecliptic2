@@ -7,12 +7,12 @@ namespace EclipticTwo.Cargo
 {
     public class CargoCollectible : GravitatingBody, ITriggerObject
     {
-        public delegate void CollectHandler(CargoCollectible cargo);
-        public event CollectHandler Collected;
         [SerializeField] private CargoGrabber _grabber;
         private Transform _startingTransform;
-
         private float _timeSinceActivation;
+
+        public delegate void CollectHandler(CargoCollectible cargo);
+        public event CollectHandler Collected;
         private new void Awake()
         {
             base.Awake();

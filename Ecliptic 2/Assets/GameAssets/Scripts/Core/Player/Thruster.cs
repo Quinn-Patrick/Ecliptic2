@@ -14,7 +14,6 @@ namespace EclipticTwo.Core
         [SerializeField] private GameObject _exhaust;
         private Fuel _fuel;
         readonly bool _canThrust = true;
-
         private void Awake()
         {
             _fuel = GetComponent<Fuel>();
@@ -43,7 +42,12 @@ namespace EclipticTwo.Core
             Vector3 thrustVector = new Vector3(xThrust, yThrust, 0f);
             _entity.UpdateAcceleration(_power * Time.fixedDeltaTime * thrustVector);
 
-            _fuel.DepleteFuel(math.abs(_input.GetThrust()));
+            _fuel.DepleteFuel(math.abs(thrust));
+        }
+        public float GetThrustState()
+        {
+            if (_fuel.GetFuelLevel() < float.Epsilon) return 0;
+            return _input.GetThrust();
         }
         private void ProjectExhaust()
         {

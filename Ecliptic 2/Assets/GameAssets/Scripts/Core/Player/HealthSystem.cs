@@ -11,6 +11,7 @@ namespace EclipticTwo.Core
         [SerializeField] private float _minimumCrashSpeed;
         [SerializeField] private float _crashDamageMultiplier;
         private float _currentHealth;
+        private bool _isDead;
 
         public delegate void DeathHandler();
         public event DeathHandler Dead;
@@ -46,9 +47,10 @@ namespace EclipticTwo.Core
         }
         private void Update()
         {
-            if (_currentHealth <= 0)
+            if (_currentHealth <= 0 && !_isDead)
             {
                 Dead?.Invoke();
+                _isDead = true;
                 _owner.gameObject.transform.localScale = Vector3.zero;
             }
         }
@@ -70,6 +72,7 @@ namespace EclipticTwo.Core
         }
         public void RestoreHealth(float restoreAmount)
         {
+            _isDead = false;
             _currentHealth += restoreAmount;
             EnsureHealth();
         }

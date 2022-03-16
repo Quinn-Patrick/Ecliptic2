@@ -10,6 +10,9 @@ namespace EclipticTwo.Core
         [SerializeField] private float _currentFuel;
         [SerializeField] private float _fuelEfficiency;
 
+        public delegate void FuelEmptyManager();
+        public event FuelEmptyManager FuelDepleted;
+
         public float GetFuelLevel()
         {
             return _currentFuel;
@@ -25,10 +28,17 @@ namespace EclipticTwo.Core
 
         public void DepleteFuel(float drain)
         {
+            float initialFuelLevel = _currentFuel;
             float drainAmount = drain * Time.fixedDeltaTime / _fuelEfficiency;
             _currentFuel -= drainAmount;
-            Metrics.Instance.FuelUsed += drainAmount;
+            
             EnsureFuel();
+            float finalFuelLevel = _currentFuel;
+            Metrics.Instance.FuelUsed += (initialFuelLevel - finalFuelLevel);
+            if(finalFuelLevel < initialFuelLevel && finalFuelLevel < float.Epsilon)
+            {
+                FuelDepleted?.Invoke();
+            }
         }
         public void PumpFuel(float flow)
         {

@@ -503,9 +503,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 782.2, y: -274.52002}
+  m_AnchoredPosition: {x: 844, y: -321}
   m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: -0.00000026226044, y: 0.0000010579824}
 --- !u!114 &529861939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,7 +575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 113, y: -315.83}
+  m_AnchoredPosition: {x: 113, y: -249}
   m_SizeDelta: {x: 259.7652, y: 38.666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &568357452
@@ -1331,7 +1331,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 256, y: -371.77}
+  m_AnchoredPosition: {x: 161, y: -323.57}
   m_SizeDelta: {x: 255.4043, y: 48.0984}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1265733994
@@ -1612,7 +1612,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 570.65, y: -276.51}
+  m_AnchoredPosition: {x: 583.48, y: -316.49}
   m_SizeDelta: {x: 534.7075, y: 39.9753}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1564055076
@@ -2164,7 +2164,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 322, y: -437}
+  m_AnchoredPosition: {x: 300.65, y: -398}
   m_SizeDelta: {x: 534.7075, y: 39.9753}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2025543779
@@ -2298,7 +2298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 802, y: -249}
+  m_AnchoredPosition: {x: 837, y: -275}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2131207238

@@ -14,11 +14,11 @@ namespace EclipticTwo.Gui
         private readonly string _trigger = "LevelOver";
         private void OnEnable()
         {
-            NextLevelCountdown.CountdownOver += ActivateWipe;
+            NextLevelCountdown.Instance.CountdownEnded += ActivateWipe;
         }
         private void OnDisable()
         {
-            NextLevelCountdown.CountdownOver -= ActivateWipe;
+            NextLevelCountdown.Instance.CountdownEnded -= ActivateWipe;
         }
         public void TransitionLevel(Loader.Scene scene)
         {

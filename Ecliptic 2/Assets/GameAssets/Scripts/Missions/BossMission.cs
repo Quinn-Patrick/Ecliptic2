@@ -6,24 +6,15 @@ using EclipticTwo.Core;
 
 namespace EclipticTwo.Missions
 {
-    public class BossMission : MonoBehaviour, IMission
+    public class BossMission : Mission
     {
-        private MissionType _type = MissionType.Boss;
         private List<MassiveBody> _bossList = new List<MassiveBody>();
         private int _bossesDestroyed = 0;
         private int _totalBosses;
-        private string _name;
-        private string _description;
-        private bool _isRequired;
-        private bool _isComplete;
         [SerializeField] private BossMissionData _data;
-
-        private int _baseScore;
-        private int _baseTimeBonus;
-        private float _bonusTime;
-        private void Start()
+        new private void Start()
         {
-            AcquireMission();
+            base.Start();
             _name = _data.missionName;
             _description = _data.description;
             _isRequired = _data.isRequired;
@@ -55,51 +46,20 @@ namespace EclipticTwo.Missions
                 }
             }
         }
-        public void AcquireMission()
-        {
-            MissionCore.Instance.GainMission(this);
-        }
 
-        public void CompleteMission()
+        new public void CompleteMission()
         {
-            Metrics.Instance.MissionsCompleted++;
-            _isComplete = true;
+            base.CompleteMission();
             foreach (MassiveBody b in _bossList)
             {
                 b.Destroyed -= (b) => DestroyBoss(b);
             }
-            Score.Instance.GainScoreTimeBonus(_baseScore, _baseTimeBonus, _bonusTime);
         }
 
-        public string GetMissionDescription()
-        {
-            return _description;
-        }
-
-        public string GetMissionName()
-        {
-            return _name;
-        }
-
-        public string GetMissionProgress()
+        override public string GetMissionProgress()
         {
             if (_isComplete) return $"{_name}: Complete!";
             return $"{_name}: {_totalBosses - _bossesDestroyed} Remaining";
-        }
-
-        public MissionType GetMissionType()
-        {
-            return _type;
-        }
-
-        public bool IsComplete()
-        {
-            return _isComplete;
-        }
-
-        public bool IsRequired()
-        {
-            return _isRequired;
         }
         private void DestroyBoss(MassiveBody boss)
         {
