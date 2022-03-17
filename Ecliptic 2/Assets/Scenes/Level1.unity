@@ -524,6 +524,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3886436468374884440, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3886436468374884440, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
+      propertyPath: InheritVelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4391161441263911803, guid: 4c08a5b135349bc47ad4d2d468d835ee, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0
