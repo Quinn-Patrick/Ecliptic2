@@ -11,7 +11,7 @@ namespace EclipticTwo.Core
         private DynamicEntity _entity;
         private Vector3 _eulerAngles;
         [SerializeField] private float _power;
-        [SerializeField] private GameObject _exhaust;
+        [SerializeField] private ParticleSystem _exhaust;
         private Fuel _fuel;
         readonly bool _canThrust = true;
         private void Awake()
@@ -52,13 +52,14 @@ namespace EclipticTwo.Core
         private void ProjectExhaust()
         {
             if (_exhaust == null) return;
+            ParticleSystem.EmissionModule emission = _exhaust.emission;
             if (_input.GetThrust() > 0 && (_fuel == null || _fuel.GetFuelLevel() > 0f))
             {
-                _exhaust.transform.localScale = Vector3.one;
+                emission.rateOverTime = 30f;
             }
             else
             {
-                _exhaust.transform.localScale = Vector3.zero;
+                emission.rateOverTime = 0f;
             }
         }
     }
