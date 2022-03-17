@@ -55,7 +55,7 @@ namespace EclipticTwo.Core
             ParticleSystem.EmissionModule emission = _exhaust.emission;
             if (_input.GetThrust() > 0 && (_fuel == null || _fuel.GetFuelLevel() > 0f))
             {
-                emission.rateOverTime = 30f;
+                emission.rateOverTime = 30f * _input.GetThrust();
             }
             else
             {
