@@ -56,5 +56,9 @@ namespace EclipticTwo.Guns
                 ObjectPooler.Instance.ReturnToPool("shots", this.gameObject);
             }
         }
+        public float GetRange()
+        {
+            return _range;
+        }
     }
 }
