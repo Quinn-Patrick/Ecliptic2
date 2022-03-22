@@ -21,7 +21,8 @@ namespace EclipticTwo.Core
             HowToPlay1,
             HowToPlay2,
             HowToPlay3,
-            End
+            End,
+            Options
         }
         private static Action _onLoaderCallback;
 
