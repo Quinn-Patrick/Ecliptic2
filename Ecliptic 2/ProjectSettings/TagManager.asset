@@ -3,15 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - AsteroidMission1
+  - CargoMission1
+  - OrbitMission1
+  - Boss1
+  - MapBackground
+  - NoRadar
+  - GeneralRadarDots
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Intangible
   - 
   - 
   - 
