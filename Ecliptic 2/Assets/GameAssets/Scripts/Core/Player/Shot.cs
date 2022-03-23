@@ -32,18 +32,38 @@ namespace EclipticTwo.Guns
         {
             Vector2 vectorAngle = new Vector2(cos(radians(gameObject.transform.eulerAngles.z)), sin(radians(gameObject.transform.eulerAngles.z)));
             RaycastHit2D rayHit = Physics2D.Raycast(_origin, vectorAngle, _range, mask);
-            for (int i = 0; i < 16; i++)
+
+            int range = 16;
+            for (int i = 0; i < range; i++)
             {
                 rayHit = Physics2D.Raycast(_origin, vectorAngle, _range, mask);
-                if (rayHit.collider != null) break;
+                if (rayHit.collider != null)
+                {
+                    RegisterHit(rayHit);
+                    if (IsTargetDestroyable(rayHit))
+                    {
+                        break;
+                    }
+                }
                 yield return null;
             }
-            if (rayHit.collider != null)
+        }
+
+        private void RegisterHit(RaycastHit2D rayHit)
+        {
+            _range = Vector2.Distance(_origin, rayHit.point);
+            
+        }
+
+        private bool IsTargetDestroyable(RaycastHit2D rayHit)
+        {
+            IDestroyable target = rayHit.collider.gameObject.GetComponent<IDestroyable>();
+            if (target != null)
             {
-                _range = Vector2.Distance(_origin, rayHit.point);
-                IDestroyable target = rayHit.collider.gameObject.GetComponent<IDestroyable>();
-                if (target != null) target.Defeated();
+                target.Defeated();
+                return true;
             }
+            return false;
         }
 
         private void FixedUpdate()
