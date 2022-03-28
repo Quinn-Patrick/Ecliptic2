@@ -1389,7 +1389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _source: {fileID: 1858129326}
   _pseudoParent: {fileID: 1658020677}
-  _clip: {fileID: 8300000, guid: f3915af6ddd19b54288dd0daad3e5127, type: 3}
+  _clip: {fileID: 8300000, guid: 80f99de65a5fb3942893d34b798ad96b, type: 3}
   _adjusters: {fileID: 1858129325}
 --- !u!1 &1927457644
 GameObject:
