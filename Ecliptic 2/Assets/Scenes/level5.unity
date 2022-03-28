@@ -1998,7 +1998,7 @@ MonoBehaviour:
   pools:
   - tag: shots
     prefab: {fileID: 1878339908578727092, guid: cfd082ff8531c0b45a916d7829d404b0, type: 3}
-    size: 60
+    size: 5
 --- !u!4 &1788396371
 Transform:
   m_ObjectHideFlags: 0

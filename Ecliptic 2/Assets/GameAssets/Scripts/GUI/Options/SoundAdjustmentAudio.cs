@@ -10,13 +10,26 @@ namespace EclipticTwo.Audio
         [SerializeField] private AudioClip _clip;
         [SerializeField] private AudioAdjusters _adjusters;
 
+        private float _soundTiming;
+
         private void OnEnable()
         {
-            _adjusters.SoundAdjusted += () => PlaySound(_clip);
+            _adjusters.SoundAdjusted += PlayAdjustmentSound;
         }
         private void OnDisable()
         {
-            _adjusters.SoundAdjusted -= () => PlaySound(_clip);
+            _adjusters.SoundAdjusted -= PlayAdjustmentSound;
+        }
+
+        private void PlayAdjustmentSound()
+        {
+            _soundTiming += Time.deltaTime;
+
+            if(_soundTiming > 0.1f)
+            {
+                PlaySound(_clip);
+                _soundTiming -= _soundTiming;
+            }
         }
     }
 }
