@@ -10529,7 +10529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxFuel: 100
   _currentFuel: 100
-  _fuelEfficiency: 0.1
+  _fuelEfficiency: 0.125
 --- !u!114 &2006834026112244975
 MonoBehaviour:
   m_ObjectHideFlags: 0
